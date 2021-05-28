@@ -9,12 +9,16 @@ import {HomePageComponent} from './view/pages/home-page/home-page.component';
 import {HttpClientModule} from "@angular/common/http";
 import {TrackTableComponent} from './view/tables/track-table/track-table.component';
 import {MatPaginatorModule} from "@angular/material/paginator";
+import {HeaderSectionComponent} from './view/sections/header-section/header-section.component';
+import {FooterSectionComponent} from './view/sections/footer-section/footer-section.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomePageComponent,
-    TrackTableComponent
+    TrackTableComponent,
+    HeaderSectionComponent,
+    FooterSectionComponent
   ],
   imports: [
     BrowserModule,
@@ -23,7 +27,7 @@ import {MatPaginatorModule} from "@angular/material/paginator";
     MatTableModule,
     MatSortModule,
     MatPaginatorModule,
-    BrowserAnimationsModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
