@@ -14,7 +14,7 @@ export class TrackTableComponent {
   displayedColumns: any[] = ['title', 'artist'];
   dataSource: MatTableDataSource<any> = new MatTableDataSource<any>();
   pageSizeOptions = [0, 1, 2, 5, 10, 15, 20, 25, 50, 100, 200, 500, 1000];
-  pageSize = 5;
+  pageSize = 25;
   pageIndex = 0;
   length = 0;
 
