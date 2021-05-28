@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {ItunesService} from "../../../control/services/itunes/itunes.service";
 import {TrackVO} from "../../../control/vo/track-vo";
+import {Title} from "@angular/platform-browser";
+import {environment} from "../../../../environments/environment";
 
 @Component({
   selector: 'app-home-page',
@@ -10,10 +12,12 @@ import {TrackVO} from "../../../control/vo/track-vo";
 export class HomePageComponent implements OnInit {
   public tracks!: TrackVO[];
 
-  constructor(protected iTunesService: ItunesService) {
+  constructor(private browserTitle: Title,
+              protected iTunesService: ItunesService) {
   }
 
   ngOnInit(): void {
+    this.browserTitle.setTitle(`Home | ${environment.appTitle}`);
     this.iTunesService.getTopAlbums().subscribe(response => this.tracks = response);
   }
 }

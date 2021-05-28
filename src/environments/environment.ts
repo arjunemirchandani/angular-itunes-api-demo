@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  appTitle: 'Angular iTunes API Demo',
   iTunesRssUrl: 'https://itunes.apple.com/us/rss'
 };
 

@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {Title} from "@angular/platform-browser";
+import {environment} from "../../../../environments/environment";
 
 @Component({
   selector: 'app-contact-page',
@@ -7,10 +9,11 @@ import {Component, OnInit} from '@angular/core';
 })
 export class ContactPageComponent implements OnInit {
 
-  constructor() {
+  constructor(private browserTitle: Title) {
   }
 
   ngOnInit(): void {
+    this.browserTitle.setTitle(`Contact | ${environment.appTitle}`)
   }
 
 }
