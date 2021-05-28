@@ -1,16 +1,24 @@
 <mat-paginator [length]="length" [pageIndex]="pageIndex" [pageSizeOptions]="pageSizeOptions" [pageSize]="pageSize" showFirstLastButtons="true"></mat-paginator>
-<mat-table [dataSource]="dataSource" matSort matSortActive="title" matSortDirection="asc" role="treegrid">
-  <ng-container matColumnDef="title">
-    <mat-header-cell *matHeaderCellDef mat-sort-header>Title</mat-header-cell>
-    <mat-cell *matCellDef="let element">{{element.title}}</mat-cell>
+<mat-table [dataSource]="dataSource" matSort matSortActive="name" matSortDirection="asc" role="treegrid">
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Album Name</mat-header-cell>
+    <mat-cell *matCellDef="let element">{{element.name}}</mat-cell>
   </ng-container>
   <ng-container matColumnDef="artist">
-    <mat-header-cell *matHeaderCellDef mat-sort-header>Artist</mat-header-cell>
-    <mat-cell *matCellDef="let element">{{element.artist}}</mat-cell>
+    <mat-header-cell *matHeaderCellDef class="artist" mat-sort-header>Artist</mat-header-cell>
+    <mat-cell *matCellDef="let element" class="artist">{{element.artist}}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="trackCount">
+    <mat-header-cell *matHeaderCellDef class="tracks" mat-sort-header>Tracks</mat-header-cell>
+    <mat-cell *matCellDef="let element" class="tracks">{{element.trackCount}}</mat-cell>
   </ng-container>
   <ng-container matColumnDef="price">
-    <mat-header-cell *matHeaderCellDef mat-sort-header>Price</mat-header-cell>
-    <mat-cell *matCellDef="let element">{{element.price | currency:'USD'}}</mat-cell>
+    <mat-header-cell *matHeaderCellDef class="price" mat-sort-header>Price</mat-header-cell>
+    <mat-cell *matCellDef="let element" class="price">{{element.price | currency:'USD'}}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="releaseDate">
+    <mat-header-cell *matHeaderCellDef class="releaseDate" mat-sort-header>Released</mat-header-cell>
+    <mat-cell *matCellDef="let element" class="releaseDate">{{element.releaseDate | date:'shortDate'}}</mat-cell>
   </ng-container>
   <mat-header-row *matHeaderRowDef="displayedColumns;sticky:true"></mat-header-row>
   <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>

@@ -1,17 +1,22 @@
 export class TrackVO {
   title!: string;
+  name!: string;
   artist!: string;
+  trackCount!: number;
   price!: number;
+  releaseDate!: string;
 
-  constructor(title = '', artist = '', price = 0) {
-    this.title = title;
-    this.artist = artist;
-    this.price = price;
+  constructor(source: any = {}) {
+    this.title = source?.title?.label;
+    this.name = source?.name?.label;
+    this.artist = source?.artist?.label;
+    this.trackCount = source?.itemCount?.label;
+    this.price = source?.price?.attributes?.amount;
+    this.releaseDate = source?.releaseDate?.label;
   }
 
   static fromJson(obj: any) {
-    let newObj = this.simplifyPropertyNames(obj);
-    return new TrackVO(newObj.title.label, newObj.artist.label, newObj.price.attributes.amount);
+    return new TrackVO(this.simplifyPropertyNames(obj));
   }
 
   static simplifyPropertyNames(obj: any) {
