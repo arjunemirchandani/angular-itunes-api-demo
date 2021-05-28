@@ -14,6 +14,7 @@ import {FooterSectionComponent} from './view/sections/footer-section/footer-sect
 import {AboutPageComponent} from './view/pages/about-page/about-page.component';
 import {ContactPageComponent} from './view/pages/contact-page/contact-page.component';
 import {MatButtonModule} from "@angular/material/button";
+import {NgxSpinnerModule} from "ngx-spinner";
 
 @NgModule({
   declarations: [
@@ -23,13 +24,14 @@ import {MatButtonModule} from "@angular/material/button";
     HeaderSectionComponent,
     FooterSectionComponent,
     AboutPageComponent,
-    ContactPageComponent
+    ContactPageComponent,
   ],
   imports: [
     AppRoutingModule,
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    NgxSpinnerModule,
     MatTableModule,
     MatSortModule,
     MatPaginatorModule,
