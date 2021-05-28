@@ -1,3 +1,5 @@
+import {AppUtils} from "../util/app-utils";
+
 export class TrackVO {
   title!: string;
   name!: string;
@@ -16,18 +18,6 @@ export class TrackVO {
   }
 
   static fromJson(obj: any) {
-    return new TrackVO(this.simplifyPropertyNames(obj));
-  }
-
-  static simplifyPropertyNames(obj: any) {
-    let newObj: any = {};
-    for (let k in obj) {
-      if (k.includes(':')) {
-        newObj[k.split(':')[1]] = obj[k];
-      } else {
-        newObj[k] = obj[k];
-      }
-    }
-    return newObj;
+    return new TrackVO(AppUtils.simplifyPropertyNames(obj));
   }
 }
