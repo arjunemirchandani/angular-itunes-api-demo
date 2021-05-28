@@ -1,20 +1,39 @@
 \:host
-  background: #904646
+  background: #3d5e6d
   min-height: 50px
   border-bottom: 1px solid #444
   box-sizing: border-box
-  padding: 0 10px
+  padding: 0 15px 0 5px
   color: #fff
   text-shadow: 1px 1px 1px rgba(0, 0, 0, .5)
   display: flex
   align-items: center
-  font-size: 13px
   font-family: "Roboto", sans-serif
 
   div.left-col
     flex-grow: 2
-    font-weight: bold
+    display: flex
+    align-items: center
+
+    img
+      max-height: 42px
+      width: auto
+
+    div
+      font-size: 24px
+      margin-left: 10px
+      cursor: default
 
   div.right-col
     flex-grow: 2
-    text-align: right
+    justify-content: flex-end
+    display: flex
+    align-items: center
+    font-size: 18px
+
+    a
+      margin: 0 20px
+
+      &:hover
+        color: #00ffff
+        cursor: pointer
