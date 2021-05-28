@@ -13,6 +13,7 @@ import {HeaderSectionComponent} from './view/sections/header-section/header-sect
 import {FooterSectionComponent} from './view/sections/footer-section/footer-section.component';
 import {AboutPageComponent} from './view/pages/about-page/about-page.component';
 import {ContactPageComponent} from './view/pages/contact-page/contact-page.component';
+import {MatButtonModule} from "@angular/material/button";
 
 @NgModule({
   declarations: [
@@ -25,13 +26,14 @@ import {ContactPageComponent} from './view/pages/contact-page/contact-page.compo
     ContactPageComponent
   ],
   imports: [
-    BrowserModule,
     AppRoutingModule,
+    BrowserModule,
+    BrowserAnimationsModule,
     HttpClientModule,
     MatTableModule,
     MatSortModule,
     MatPaginatorModule,
-    BrowserAnimationsModule
+    MatButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

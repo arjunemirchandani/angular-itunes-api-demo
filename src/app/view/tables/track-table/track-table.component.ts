@@ -12,7 +12,7 @@ export class TrackTableComponent {
   @ViewChild(MatPaginator, {static: false}) paginator!: MatPaginator;
   @ViewChild(MatSort, {static: false}) sort!: MatSort;
   public dataSource: MatTableDataSource<any> = new MatTableDataSource<any>();
-  public displayedColumns: any[] = ['name', 'artist', 'trackCount', 'price', 'releaseDate'];
+  public displayedColumns: any[] = ['name', 'artist', 'trackCount', 'price', 'releaseDate', 'details'];
   public pageSizeOptions = [0, 1, 5, 10, 25, 50, 100];
   public pageSize = 25;
   public pageIndex = 0;
