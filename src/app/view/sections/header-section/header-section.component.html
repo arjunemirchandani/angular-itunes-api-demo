@@ -3,7 +3,7 @@
   <div>Angular iTunes API Demo</div>
 </div>
 <div class="right-col">
-  <a>Top 100</a>
-  <a>About</a>
-  <a>Contact</a>
+  <a [routerLinkActiveOptions]="{exact: true}" routerLink="/" routerLinkActive="nav-active">Home</a>
+  <a routerLink="/about" routerLinkActive="nav-active">About</a>
+  <a routerLink="/contact" routerLinkActive="nav-active">Contact</a>
 </div>

@@ -11,6 +11,8 @@ import {TrackTableComponent} from './view/tables/track-table/track-table.compone
 import {MatPaginatorModule} from "@angular/material/paginator";
 import {HeaderSectionComponent} from './view/sections/header-section/header-section.component';
 import {FooterSectionComponent} from './view/sections/footer-section/footer-section.component';
+import {AboutPageComponent} from './view/pages/about-page/about-page.component';
+import {ContactPageComponent} from './view/pages/contact-page/contact-page.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import {FooterSectionComponent} from './view/sections/footer-section/footer-sect
     HomePageComponent,
     TrackTableComponent,
     HeaderSectionComponent,
-    FooterSectionComponent
+    FooterSectionComponent,
+    AboutPageComponent,
+    ContactPageComponent
   ],
   imports: [
     BrowserModule,
