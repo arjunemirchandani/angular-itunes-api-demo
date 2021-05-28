@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  iTunesRssUrl: 'https://itunes.apple.com/us/rss'
 };
