@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {ItunesService} from "../../../control/services/itunes/itunes.service";
-import {TrackVO} from "../../../control/vo/track-vo";
 import {Title} from "@angular/platform-browser";
 import {environment} from "../../../../environments/environment";
+import {AlbumVO} from "../../../control/vo/album-vo";
 
 @Component({
   selector: 'app-home-page',
@@ -10,7 +10,7 @@ import {environment} from "../../../../environments/environment";
   styleUrls: ['./home-page.component.sass']
 })
 export class HomePageComponent implements OnInit {
-  public tracks!: TrackVO[];
+  public tracks!: AlbumVO[];
 
   constructor(private browserTitle: Title,
               protected iTunesService: ItunesService) {

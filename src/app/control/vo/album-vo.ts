@@ -1,6 +1,6 @@
 import {AppUtils} from "../util/app-utils";
 
-export class TrackVO {
+export class AlbumVO {
   title!: string;
   name!: string;
   artist!: string;
@@ -18,6 +18,6 @@ export class TrackVO {
   }
 
   static fromJson(obj: any) {
-    return new TrackVO(AppUtils.simplifyPropertyNames(obj));
+    return new AlbumVO(AppUtils.simplifyPropertyNames(obj));
   }
 }
