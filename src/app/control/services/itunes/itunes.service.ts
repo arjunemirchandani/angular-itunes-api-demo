@@ -6,16 +6,30 @@ import {NgxSpinnerService} from "ngx-spinner";
 import {AlbumVO} from "../../vo/album-vo";
 import {MatSnackBar} from "@angular/material/snack-bar";
 
+/**
+ * Service that fetches data from the itunes public rss feed
+ */
 @Injectable({
   providedIn: 'root'
 })
 export class ItunesService {
 
+  /**
+   * constructor
+   * @param http
+   * @param snackBar
+   * @param spinner
+   */
   constructor(protected http: HttpClient,
               protected snackBar: MatSnackBar,
               protected spinner: NgxSpinnerService) {
   }
 
+  /**
+   * fetches the top albums from iTunes
+   * @param limit
+   * @param responseFormat
+   */
   public getTopAlbums(limit = 100, responseFormat = 'json') {
     this.spinner.show().then();
     return this.http.get<any>(environment.iTunesRssUrl + '/topalbums/limit=' + limit + '/' + responseFormat).pipe(

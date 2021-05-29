@@ -1,5 +1,8 @@
 import {AppUtils} from "../util/app-utils";
 
+/**
+ * Album value object
+ */
 export class AlbumVO {
   title!: string;
   name!: string;
@@ -8,6 +11,10 @@ export class AlbumVO {
   price!: number;
   releaseDate!: string;
 
+  /**
+   * constructor
+   * @param source
+   */
   constructor(source: any = {}) {
     this.title = source?.title?.label;
     this.name = source?.name?.label;
@@ -17,6 +24,10 @@ export class AlbumVO {
     this.releaseDate = source?.releaseDate?.label;
   }
 
+  /**
+   * converts an object to a Album value object
+   * @param obj
+   */
   static fromJson(obj: any) {
     return new AlbumVO(AppUtils.simplifyPropertyNames(obj));
   }

@@ -1,4 +1,12 @@
+/**
+ * A set of generic utilities that can be utilized anywhere in the application
+ */
 export class AppUtils {
+
+  /**
+   * strips out the colon from object property names
+   * @param obj
+   */
   static simplifyPropertyNames(obj: any) {
     let newObj: any = {};
     for (let k in obj) {
