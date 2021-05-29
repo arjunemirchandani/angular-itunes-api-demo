@@ -19,6 +19,7 @@ import {AlbumDetailsDialogComponent} from './view/dialogs/album-details-dialog/a
 import {DialogHeaderSectionComponent} from './view/sections/dialog-header-section/dialog-header-section.component';
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
+import {MatIconModule} from "@angular/material/icon";
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
     MatPaginatorModule,
     MatButtonModule,
     MatDialogModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
