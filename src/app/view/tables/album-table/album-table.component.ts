@@ -1,19 +1,19 @@
 import {Component, Input, OnInit, ViewChild} from '@angular/core';
-import {MatTableDataSource} from "@angular/material/table";
 import {MatPaginator} from "@angular/material/paginator";
 import {MatSort} from "@angular/material/sort";
-import {AlbumVO} from "../../../control/vo/album-vo";
-import {MatDialog} from "@angular/material/dialog";
-import {AlbumDetailsDialogComponent} from "../../dialogs/album-details-dialog/album-details-dialog.component";
-import {AppUtils} from "../../../control/util/app-utils";
+import {MatTableDataSource} from "@angular/material/table";
 import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
+import {MatDialog} from "@angular/material/dialog";
+import {AppUtils} from "../../../control/util/app-utils";
+import {AlbumVO} from "../../../control/vo/album-vo";
+import {AlbumDetailsDialogComponent} from "../../dialogs/album-details-dialog/album-details-dialog.component";
 
 @Component({
-  selector: 'app-track-table',
-  templateUrl: './track-table.component.html',
-  styleUrls: ['./track-table.component.sass']
+  selector: 'app-album-table',
+  templateUrl: './album-table.component.html',
+  styleUrls: ['./album-table.component.sass']
 })
-export class TrackTableComponent implements OnInit {
+export class AlbumTableComponent implements OnInit {
   @ViewChild(MatPaginator, {static: false}) paginator!: MatPaginator;
   @ViewChild(MatSort, {static: false}) sort!: MatSort;
   public dataSource: MatTableDataSource<any> = new MatTableDataSource<any>();
@@ -28,12 +28,6 @@ export class TrackTableComponent implements OnInit {
               private formBuilder: FormBuilder) {
   }
 
-  ngOnInit(): void {
-    this.formGroup = this.formBuilder.group({
-      searchText: new FormControl(''),
-    });
-  }
-
   @Input()
   set tracks(tracks: any[]) {
     if (tracks !== undefined) {
@@ -42,6 +36,12 @@ export class TrackTableComponent implements OnInit {
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
     }
+  }
+
+  ngOnInit(): void {
+    this.formGroup = this.formBuilder.group({
+      searchText: new FormControl(''),
+    });
   }
 
   openAlbumDetailsDialog(album: AlbumVO) {
