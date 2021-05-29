@@ -23,7 +23,7 @@
   <ng-container matColumnDef="details">
     <mat-header-cell *matHeaderCellDef class="details" mat-sort-header></mat-header-cell>
     <mat-cell *matCellDef="let element" class="details">
-      <button mat-button>details</button>
+      <button (click)="openAlbumDetailsDialog(element)" mat-button>details</button>
     </mat-cell>
   </ng-container>
   <mat-header-row *matHeaderRowDef="displayedColumns;sticky:true"></mat-header-row>

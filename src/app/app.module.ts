@@ -15,6 +15,9 @@ import {AboutPageComponent} from './view/pages/about-page/about-page.component';
 import {ContactPageComponent} from './view/pages/contact-page/contact-page.component';
 import {MatButtonModule} from "@angular/material/button";
 import {NgxSpinnerModule} from "ngx-spinner";
+import {AlbumDetailsDialogComponent} from './view/dialogs/album-details-dialog/album-details-dialog.component';
+import {DialogHeaderSectionComponent} from './view/sections/dialog-header-section/dialog-header-section.component';
+import {MatDialogModule} from "@angular/material/dialog";
 
 @NgModule({
   declarations: [
@@ -25,6 +28,8 @@ import {NgxSpinnerModule} from "ngx-spinner";
     FooterSectionComponent,
     AboutPageComponent,
     ContactPageComponent,
+    AlbumDetailsDialogComponent,
+    DialogHeaderSectionComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -36,6 +41,7 @@ import {NgxSpinnerModule} from "ngx-spinner";
     MatSortModule,
     MatPaginatorModule,
     MatButtonModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

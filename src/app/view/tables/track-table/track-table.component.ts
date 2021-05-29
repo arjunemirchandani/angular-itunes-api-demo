@@ -2,6 +2,9 @@ import {Component, Input, ViewChild} from '@angular/core';
 import {MatTableDataSource} from "@angular/material/table";
 import {MatPaginator} from "@angular/material/paginator";
 import {MatSort} from "@angular/material/sort";
+import {AlbumVO} from "../../../control/vo/album-vo";
+import {MatDialog} from "@angular/material/dialog";
+import {AlbumDetailsDialogComponent} from "../../dialogs/album-details-dialog/album-details-dialog.component";
 
 @Component({
   selector: 'app-track-table',
@@ -18,11 +21,18 @@ export class TrackTableComponent {
   public pageIndex = 0;
   public length = 0;
 
+  constructor(private dialog: MatDialog) {
+  }
+
   @Input()
   set tracks(tracks: any[]) {
     console.log("Track Table Refreshed:", tracks);
     this.dataSource.data = tracks;
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
+  }
+
+  openAlbumDetailsDialog(album: AlbumVO) {
+    this.dialog.open(AlbumDetailsDialogComponent, {data: {album}, panelClass: ['standard-dialog']})
   }
 }
