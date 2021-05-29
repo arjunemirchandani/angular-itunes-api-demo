@@ -20,4 +20,5 @@ export class HomePageComponent implements OnInit {
     this.browserTitle.setTitle(`Home | ${environment.appTitle}`);
     this.iTunesService.getTopAlbums().subscribe(response => this.tracks = response);
   }
+
 }

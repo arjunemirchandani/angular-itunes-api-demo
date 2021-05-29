@@ -18,4 +18,5 @@ export class AppUtils {
     }
     return newObj;
   }
+
 }

@@ -30,7 +30,7 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
     AboutPageComponent,
     ContactPageComponent,
     AlbumDetailsDialogComponent,
-    DialogHeaderSectionComponent,
+    DialogHeaderSectionComponent
   ],
   imports: [
     AppRoutingModule,

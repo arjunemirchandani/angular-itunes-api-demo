@@ -31,4 +31,5 @@ export class AlbumVO {
   static fromJson(obj: any) {
     return new AlbumVO(AppUtils.simplifyPropertyNames(obj));
   }
+
 }

@@ -35,4 +35,5 @@ export class TrackTableComponent {
   openAlbumDetailsDialog(album: AlbumVO) {
     this.dialog.open(AlbumDetailsDialogComponent, {data: {album}, panelClass: ['standard-dialog']})
   }
+
 }
