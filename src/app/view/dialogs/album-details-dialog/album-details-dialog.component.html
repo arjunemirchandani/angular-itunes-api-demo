@@ -1,8 +1,11 @@
 <app-dialog-header-section dialogTitle="Album Details"></app-dialog-header-section>
-<div *ngIf="album" mat-dialog-content>
-  <div>Album Name: {{album.name}}</div>
-  <div>Artist: {{album.artist}}</div>
-  <div>Tracks: {{album.trackCount}}</div>
-  <div>Price: {{album.price | currency:'USD'}}</div>
-  <div>Release Date: {{album.releaseDate | date:'shortDate'}}</div>
+<div *ngIf="album" class="main" mat-dialog-content>
+  <img [src]="album.albumArt">
+  <div class="info">
+    <div>Album Name: {{album.name}}</div>
+    <div>Artist: {{album.artist}}</div>
+    <div>Tracks: {{album.trackCount}}</div>
+    <div>Price: {{album.price | currency:'USD'}}</div>
+    <div>Release Date: {{album.releaseDate | date:'shortDate'}}</div>
+  </div>
 </div>

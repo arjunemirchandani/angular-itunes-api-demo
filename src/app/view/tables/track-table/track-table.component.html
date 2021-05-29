@@ -1,5 +1,9 @@
 <mat-paginator [length]="length" [pageIndex]="pageIndex" [pageSizeOptions]="pageSizeOptions" [pageSize]="pageSize" showFirstLastButtons="true"></mat-paginator>
 <mat-table [dataSource]="dataSource" matSort matSortActive="name" matSortDirection="asc" role="treegrid">
+  <ng-container matColumnDef="albumArt">
+    <mat-header-cell *matHeaderCellDef class="albumArt"></mat-header-cell>
+    <mat-cell *matCellDef="let element" class="albumArt"><img [src]="element.albumArt"></mat-cell>
+  </ng-container>
   <ng-container matColumnDef="name">
     <mat-header-cell *matHeaderCellDef mat-sort-header>Album Name</mat-header-cell>
     <mat-cell *matCellDef="let element">{{element.name}}</mat-cell>
@@ -21,7 +25,7 @@
     <mat-cell *matCellDef="let element" class="releaseDate">{{element.releaseDate | date:'shortDate'}}</mat-cell>
   </ng-container>
   <ng-container matColumnDef="details">
-    <mat-header-cell *matHeaderCellDef class="details" mat-sort-header></mat-header-cell>
+    <mat-header-cell *matHeaderCellDef class="details"></mat-header-cell>
     <mat-cell *matCellDef="let element" class="details">
       <button (click)="openAlbumDetailsDialog(element)" mat-button>details</button>
     </mat-cell>
