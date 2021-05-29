@@ -5,6 +5,7 @@ import {map, tap} from "rxjs/operators";
 import {NgxSpinnerService} from "ngx-spinner";
 import {AlbumVO} from "../../vo/album-vo";
 import {MatSnackBar} from "@angular/material/snack-bar";
+import {AppUtils} from "../../util/app-utils";
 
 /**
  * Service that fetches data from the itunes public rss feed
@@ -35,7 +36,7 @@ export class ItunesService {
     return this.http.get<any>(environment.iTunesRssUrl + '/topalbums/limit=' + limit + '/' + responseFormat).pipe(
       tap(() => this.spinner.hide()),
       tap(() => this.snackBar.open('iTunes Service', 'Top 100 Albums Feed Fetched!', {duration: 1500})),
-      tap(response => console.log("Raw Feed Response:", response)),
+      tap(response => AppUtils.consoleLog("Raw Feed Response:", response)),
       map(response => response.feed.entry.map((entry: any) => AlbumVO.fromJson(entry))),
     )
   }

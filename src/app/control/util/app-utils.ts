@@ -1,6 +1,8 @@
 /**
  * A set of generic utilities that can be utilized anywhere in the application
  */
+import {environment} from "../../../environments/environment";
+
 export class AppUtils {
 
   /**
@@ -17,6 +19,10 @@ export class AppUtils {
       }
     }
     return newObj;
+  }
+
+  static consoleLog(...data: any[]) {
+    return environment.production ? null : console.log(data)
   }
 
 }

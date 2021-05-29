@@ -5,6 +5,7 @@ import {MatSort} from "@angular/material/sort";
 import {AlbumVO} from "../../../control/vo/album-vo";
 import {MatDialog} from "@angular/material/dialog";
 import {AlbumDetailsDialogComponent} from "../../dialogs/album-details-dialog/album-details-dialog.component";
+import {AppUtils} from "../../../control/util/app-utils";
 
 @Component({
   selector: 'app-track-table',
@@ -26,10 +27,12 @@ export class TrackTableComponent {
 
   @Input()
   set tracks(tracks: any[]) {
-    console.log("Track Table Refreshed:", tracks);
-    this.dataSource.data = tracks;
-    this.dataSource.sort = this.sort;
-    this.dataSource.paginator = this.paginator;
+    if (tracks !== undefined) {
+      AppUtils.consoleLog("Track Table Refreshed:", tracks);
+      this.dataSource.data = tracks;
+      this.dataSource.sort = this.sort;
+      this.dataSource.paginator = this.paginator;
+    }
   }
 
   openAlbumDetailsDialog(album: AlbumVO) {
