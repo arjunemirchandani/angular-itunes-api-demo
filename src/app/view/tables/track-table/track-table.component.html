@@ -1,3 +1,9 @@
+<form [formGroup]="formGroup">
+  <mat-form-field appearance="fill">
+    <mat-label>Search Albums</mat-label>
+    <input #searchText (keyup)="filterResults(searchText.value)" autocomplete="album-search" formControlName="searchText" matInput name="searchText" placeholder="Search the top 100 albums">
+  </mat-form-field>
+</form>
 <mat-paginator [length]="length" [pageIndex]="pageIndex" [pageSizeOptions]="pageSizeOptions" [pageSize]="pageSize" showFirstLastButtons="true"></mat-paginator>
 <mat-table [dataSource]="dataSource" matSort matSortActive="name" matSortDirection="asc" role="treegrid">
   <ng-container matColumnDef="favorite">

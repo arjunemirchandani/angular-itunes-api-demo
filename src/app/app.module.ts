@@ -20,6 +20,29 @@ import {DialogHeaderSectionComponent} from './view/sections/dialog-header-sectio
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {MatIconModule} from "@angular/material/icon";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
+import {MatAutocompleteModule} from "@angular/material/autocomplete";
+import {MatSidenavModule} from "@angular/material/sidenav";
+import {MatSlideToggleModule} from "@angular/material/slide-toggle";
+import {MatDatepickerModule} from "@angular/material/datepicker";
+import {MatStepperModule} from "@angular/material/stepper";
+import {MatCheckboxModule} from "@angular/material/checkbox";
+import {MatMenuModule} from "@angular/material/menu";
+import {MatListModule} from "@angular/material/list";
+import {MatTooltipModule} from "@angular/material/tooltip";
+import {MatSelectModule} from "@angular/material/select";
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import {MatExpansionModule} from "@angular/material/expansion";
+import {MatButtonToggleModule} from "@angular/material/button-toggle";
+import {MatCardModule} from "@angular/material/card";
+import {MatChipsModule} from "@angular/material/chips";
+import {MatTabsModule} from "@angular/material/tabs";
+import {MatNativeDateModule} from "@angular/material/core";
+import {MatProgressBarModule} from "@angular/material/progress-bar";
+import {MatRadioModule} from "@angular/material/radio";
+import {MatSliderModule} from "@angular/material/slider";
 
 @NgModule({
   declarations: [
@@ -45,7 +68,43 @@ import {MatIconModule} from "@angular/material/icon";
     MatButtonModule,
     MatDialogModule,
     MatSnackBarModule,
-    MatIconModule
+    MatIconModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatAutocompleteModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatSidenavModule,
+    MatSlideToggleModule,
+    MatAutocompleteModule,
+    MatDatepickerModule,
+    MatStepperModule,
+    MatCheckboxModule,
+    MatDialogModule,
+    MatMenuModule,
+    MatTableModule,
+    MatSortModule,
+    MatFormFieldModule,
+    MatPaginatorModule,
+    MatButtonModule,
+    MatInputModule,
+    MatListModule,
+    MatTooltipModule,
+    MatSnackBarModule,
+    MatSelectModule,
+    MatProgressSpinnerModule,
+    MatExpansionModule,
+    MatButtonToggleModule,
+    MatIconModule,
+    MatCardModule,
+    MatChipsModule,
+    MatTabsModule,
+    MatNativeDateModule,
+    MatProgressBarModule,
+    MatRadioModule,
+    MatSliderModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
