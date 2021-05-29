@@ -18,6 +18,7 @@ import {NgxSpinnerModule} from "ngx-spinner";
 import {AlbumDetailsDialogComponent} from './view/dialogs/album-details-dialog/album-details-dialog.component';
 import {DialogHeaderSectionComponent} from './view/sections/dialog-header-section/dialog-header-section.component';
 import {MatDialogModule} from "@angular/material/dialog";
+import {MatSnackBarModule} from "@angular/material/snack-bar";
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import {MatDialogModule} from "@angular/material/dialog";
     MatSortModule,
     MatPaginatorModule,
     MatButtonModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -4,6 +4,7 @@ import {HttpClient} from "@angular/common/http";
 import {map, tap} from "rxjs/operators";
 import {NgxSpinnerService} from "ngx-spinner";
 import {AlbumVO} from "../../vo/album-vo";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +12,7 @@ import {AlbumVO} from "../../vo/album-vo";
 export class ItunesService {
 
   constructor(protected http: HttpClient,
+              protected snackBar: MatSnackBar,
               protected spinner: NgxSpinnerService) {
   }
 
@@ -18,6 +20,7 @@ export class ItunesService {
     this.spinner.show().then();
     return this.http.get<any>(environment.iTunesRssUrl + '/topalbums/limit=' + limit + '/' + responseFormat).pipe(
       tap(() => this.spinner.hide()),
+      tap(() => this.snackBar.open('iTunes Service', 'Top 100 Albums Feed Fetched!', {duration: 1500})),
       tap(response => console.log("Raw Feed Response:", response)),
       map(response => response.feed.entry.map((entry: any) => AlbumVO.fromJson(entry))),
     )
