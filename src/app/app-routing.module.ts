@@ -1,14 +1,16 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {HomePageComponent} from "./view/pages/home-page/home-page.component";
 import {AboutPageComponent} from "./view/pages/about-page/about-page.component";
 import {ContactPageComponent} from "./view/pages/contact-page/contact-page.component";
+import {GridPageComponent} from "./view/pages/grid-page/grid-page.component";
+import {TablePageComponent} from "./view/pages/table-page/table-page.component";
 
 const routes: Routes = [
-  {path: '', component: HomePageComponent, pathMatch: 'full'},
-  {path: 'about', component: AboutPageComponent, pathMatch: 'full'},
+  {path: '', component: AboutPageComponent, pathMatch: 'full'},
+  {path: 'table', component: TablePageComponent, pathMatch: 'full'},
+  {path: 'grid', component: GridPageComponent, pathMatch: 'full'},
   {path: 'contact', component: ContactPageComponent, pathMatch: 'full'},
-  {path: '**', redirectTo: '/'}
+  {path: '**', redirectTo: ''}
 ];
 
 @NgModule({

@@ -15,5 +15,4 @@ export class ContactPageComponent implements OnInit {
   ngOnInit(): void {
     this.browserTitle.setTitle(`Contact | ${environment.appTitle}`)
   }
-
 }

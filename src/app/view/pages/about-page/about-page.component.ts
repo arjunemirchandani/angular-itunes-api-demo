@@ -15,5 +15,4 @@ export class AboutPageComponent implements OnInit {
   ngOnInit(): void {
     this.browserTitle.setTitle(`About | ${environment.appTitle}`)
   }
-
 }

@@ -20,23 +20,23 @@
       </ng-container>
       <ng-container matColumnDef="name">
         <mat-header-cell *matHeaderCellDef mat-sort-header>Album Name</mat-header-cell>
-        <mat-cell *matCellDef="let element">{{element.name}}</mat-cell>
+        <mat-cell (click)="openAlbumDetailsDialog(element)" *matCellDef="let element" class="albumName">{{element.name}}</mat-cell>
       </ng-container>
       <ng-container matColumnDef="artist">
         <mat-header-cell *matHeaderCellDef class="artist" mat-sort-header ngClass.lt-sm="no-display">Artist</mat-header-cell>
         <mat-cell *matCellDef="let element" class="artist" ngClass.lt-sm="no-display">{{element.artist}}</mat-cell>
       </ng-container>
       <ng-container matColumnDef="trackCount">
-        <mat-header-cell *matHeaderCellDef class="tracks" mat-sort-header ngClass.lt-sm="no-display">Tracks</mat-header-cell>
-        <mat-cell *matCellDef="let element" class="tracks" ngClass.lt-sm="no-display">{{element.trackCount}}</mat-cell>
+        <mat-header-cell *matHeaderCellDef class="tracks" mat-sort-header ngClass.lt-md="no-display">Tracks</mat-header-cell>
+        <mat-cell *matCellDef="let element" class="tracks" ngClass.lt-md="no-display">{{element.trackCount}}</mat-cell>
       </ng-container>
       <ng-container matColumnDef="price">
         <mat-header-cell *matHeaderCellDef class="price" mat-sort-header ngClass.lt-sm="no-display">Price</mat-header-cell>
         <mat-cell *matCellDef="let element" class="price" ngClass.lt-sm="no-display">{{element.price | currency:'USD'}}</mat-cell>
       </ng-container>
       <ng-container matColumnDef="releaseDate">
-        <mat-header-cell *matHeaderCellDef class="releaseDate" mat-sort-header ngClass.lt-sm="no-display">Released</mat-header-cell>
-        <mat-cell *matCellDef="let element" class="releaseDate" ngClass.lt-sm="no-display">{{element.releaseDate | date:'shortDate'}}</mat-cell>
+        <mat-header-cell *matHeaderCellDef class="releaseDate" mat-sort-header ngClass.lt-md="no-display">Released</mat-header-cell>
+        <mat-cell *matCellDef="let element" class="releaseDate" ngClass.lt-md="no-display">{{element.releaseDate | date:'shortDate'}}</mat-cell>
       </ng-container>
       <ng-container matColumnDef="details">
         <mat-header-cell *matHeaderCellDef class="details" ngClass.lt-sm="no-display"></mat-header-cell>

@@ -51,5 +51,4 @@ export class AlbumTableComponent implements OnInit {
   filterResults(searchText: string) {
     this.dataSource.filter = searchText;
   }
-
 }

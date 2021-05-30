@@ -40,5 +40,4 @@ export class ItunesService {
       map(response => response.feed.entry.map((entry: any) => AlbumVO.fromJson(entry))),
     )
   }
-
 }

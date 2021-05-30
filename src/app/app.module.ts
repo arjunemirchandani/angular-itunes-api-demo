@@ -5,7 +5,6 @@ import {AppRoutingModule} from './app-routing.module';
 import {MatTableModule} from '@angular/material/table';
 import {MatSortModule} from '@angular/material/sort';
 import {AppComponent} from './app.component';
-import {HomePageComponent} from './view/pages/home-page/home-page.component';
 import {HttpClientModule} from "@angular/common/http";
 import {MatPaginatorModule} from "@angular/material/paginator";
 import {HeaderSectionComponent} from './view/sections/header-section/header-section.component';
@@ -42,14 +41,15 @@ import {MatNativeDateModule} from "@angular/material/core";
 import {MatProgressBarModule} from "@angular/material/progress-bar";
 import {MatRadioModule} from "@angular/material/radio";
 import {MatSliderModule} from "@angular/material/slider";
-import {AlbumTableComponent} from './view/tables/album-table/album-table.component';
 import {FlexLayoutModule} from "@angular/flex-layout";
 import {AppDrawerComponent} from './view/sections/app-drawer/app-drawer.component';
+import {GridPageComponent} from './view/pages/grid-page/grid-page.component';
+import {AlbumTableComponent} from "./view/sections/album-table/album-table.component";
+import {TablePageComponent} from './view/pages/table-page/table-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomePageComponent,
     HeaderSectionComponent,
     FooterSectionComponent,
     AboutPageComponent,
@@ -57,7 +57,9 @@ import {AppDrawerComponent} from './view/sections/app-drawer/app-drawer.componen
     AlbumDetailsDialogComponent,
     DialogHeaderSectionComponent,
     AlbumTableComponent,
-    AppDrawerComponent
+    AppDrawerComponent,
+    GridPageComponent,
+    TablePageComponent
   ],
   imports: [
     AppRoutingModule,

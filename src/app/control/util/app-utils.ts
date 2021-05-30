@@ -21,8 +21,11 @@ export class AppUtils {
     return newObj;
   }
 
+  /**
+   * logs messages to the javascript console only in dev mode
+   * @param data
+   */
   static consoleLog(...data: any[]) {
     return environment.production ? null : console.log(data)
   }
-
 }
