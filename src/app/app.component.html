@@ -1,6 +1,13 @@
-<app-header-section></app-header-section>
-<div class="main-container">
-  <router-outlet></router-outlet>
-</div>
-<app-footer-section></app-footer-section>
+<mat-drawer-container [hasBackdrop]="true" fxFill fxFlex="1 0 0" fxLayout="column">
+  <mat-drawer #drawer mode="push" position="end">
+    <app-app-drawer (toggleDrawer)="drawer.toggle()"></app-app-drawer>
+  </mat-drawer>
+  <mat-drawer-content fxFill fxFlex="1 0 0" fxLayout="column">
+    <app-header-section (toggleDrawer)="drawer.toggle()"></app-header-section>
+    <div class="main-container" fxFlex="2 0 0">
+      <router-outlet></router-outlet>
+    </div>
+    <app-footer-section></app-footer-section>
+  </mat-drawer-content>
+</mat-drawer-container>
 <ngx-spinner></ngx-spinner>

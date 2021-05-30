@@ -4,13 +4,14 @@
 
   form
     box-sizing: border-box
-    padding: 20px 10px 0 10px
-    flex-grow: 2
-    width: 100%
 
     mat-form-field
       width: 100%
 
+  div.table-container
+    border-radius: 4px
+    border: 1px solid #eeeeee
+    overflow: hidden
 
   mat-paginator
     background: #eeeeee
@@ -39,6 +40,7 @@
       height: 40px
       margin: 10px 20px 10px 0
       display: block
+      cursor: pointer
 
   mat-header-cell.artist, mat-cell.artist
     flex: 0 0 20% !important
@@ -50,15 +52,23 @@
     flex: 0 0 8% !important
 
   mat-header-cell.details, mat-cell.details
-    flex: 0 0 10% !important
+    min-width: 113px
+    max-width: 113px
 
     button
       margin-left: 30px
       width: 100%
       font-size: 12px
-      padding: 2px 6px
+      padding: 2px 16px 2px 6px
+      box-sizing: border-box
       min-width: 20px
       text-transform: uppercase
       line-height: 26px
       color: #fff
       background: #45778c
+
+      mat-icon
+        width: 16px
+        height: 16px
+        font-size: 16px
+        margin-top: -1px

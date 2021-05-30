@@ -1,9 +1,16 @@
-<div class="left-col">
-  <img src="/assets/images/headphones.png">
-  <div routerLink="/">iTunes Top 100 Albums</div>
-</div>
-<div class="right-col">
-  <a [routerLinkActiveOptions]="{exact: true}" routerLink="/" routerLinkActive="nav-active">Home</a>
-  <a routerLink="/about" routerLinkActive="nav-active">About</a>
-  <a routerLink="/contact" routerLinkActive="nav-active">Contact</a>
+<div fxFill fxLayout="row" fxLayoutAlign="stretch center">
+  <div ngClass.lt-sm="no-display">
+    <img src="/assets/images/headphones.png">
+  </div>
+  <div class="title" fxFlex="2 0 0" routerLink="/">iTunes Top 100 Albums</div>
+  <div class="link-container" fxFlex="2 0 0" fxLayout="row" fxLayoutAlign="end center" ngClass.lt-sm="no-display">
+    <a [routerLinkActiveOptions]="{exact: true}" routerLink="/" routerLinkActive="nav-active">Home</a>
+    <a routerLink="/about" routerLinkActive="nav-active">About</a>
+    <a routerLink="/contact" routerLinkActive="nav-active">Contact</a>
+  </div>
+  <div class="no-display" fxFlex="0 0 0" fxLayout="row" fxLayoutAlign="center center" ngClass.lt-sm="sidebar-button-container">
+    <button (click)="toggleDrawer.emit()" mat-icon-button>
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
 </div>

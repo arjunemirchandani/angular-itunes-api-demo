@@ -1,47 +1,54 @@
-<form [formGroup]="formGroup">
-  <mat-form-field appearance="fill">
-    <mat-label>Search Albums</mat-label>
-    <input #searchText (keyup)="filterResults(searchText.value)" autocomplete="album-search" formControlName="searchText" matInput name="searchText" placeholder="Search the top 100 albums">
-  </mat-form-field>
-</form>
-<mat-paginator [length]="length" [pageIndex]="pageIndex" [pageSizeOptions]="pageSizeOptions" [pageSize]="pageSize" showFirstLastButtons="true"></mat-paginator>
-<mat-table [dataSource]="dataSource" matSort matSortActive="name" matSortDirection="asc" role="treegrid">
-  <ng-container matColumnDef="favorite">
-    <mat-header-cell *matHeaderCellDef class="favorite"></mat-header-cell>
-    <mat-cell *matCellDef="let element" class="favorite">
-      <mat-icon>favorite</mat-icon>
-    </mat-cell>
-  </ng-container>
-  <ng-container matColumnDef="albumArt">
-    <mat-header-cell *matHeaderCellDef class="albumArt"></mat-header-cell>
-    <mat-cell *matCellDef="let element" class="albumArt"><img [src]="element.albumArt"></mat-cell>
-  </ng-container>
-  <ng-container matColumnDef="name">
-    <mat-header-cell *matHeaderCellDef mat-sort-header>Album Name</mat-header-cell>
-    <mat-cell *matCellDef="let element">{{element.name}}</mat-cell>
-  </ng-container>
-  <ng-container matColumnDef="artist">
-    <mat-header-cell *matHeaderCellDef class="artist" mat-sort-header>Artist</mat-header-cell>
-    <mat-cell *matCellDef="let element" class="artist">{{element.artist}}</mat-cell>
-  </ng-container>
-  <ng-container matColumnDef="trackCount">
-    <mat-header-cell *matHeaderCellDef class="tracks" mat-sort-header>Tracks</mat-header-cell>
-    <mat-cell *matCellDef="let element" class="tracks">{{element.trackCount}}</mat-cell>
-  </ng-container>
-  <ng-container matColumnDef="price">
-    <mat-header-cell *matHeaderCellDef class="price" mat-sort-header>Price</mat-header-cell>
-    <mat-cell *matCellDef="let element" class="price">{{element.price | currency:'USD'}}</mat-cell>
-  </ng-container>
-  <ng-container matColumnDef="releaseDate">
-    <mat-header-cell *matHeaderCellDef class="releaseDate" mat-sort-header>Released</mat-header-cell>
-    <mat-cell *matCellDef="let element" class="releaseDate">{{element.releaseDate | date:'shortDate'}}</mat-cell>
-  </ng-container>
-  <ng-container matColumnDef="details">
-    <mat-header-cell *matHeaderCellDef class="details"></mat-header-cell>
-    <mat-cell *matCellDef="let element" class="details">
-      <button (click)="openAlbumDetailsDialog(element)" mat-button>details</button>
-    </mat-cell>
-  </ng-container>
-  <mat-header-row *matHeaderRowDef="displayedColumns;sticky:true"></mat-header-row>
-  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-</mat-table>
+<div fxLayout="column">
+  <form [formGroup]="formGroup" fxFlex="2 0 0" fxLayout="column">
+    <mat-form-field appearance="fill">
+      <mat-label>Search Albums</mat-label>
+      <input #searchText (keyup)="filterResults(searchText.value)" autocomplete="album-search" formControlName="searchText" matInput name="searchText" placeholder="Search the top 100 albums">
+    </mat-form-field>
+  </form>
+  <div class="table-container">
+    <mat-paginator [length]="length" [pageIndex]="pageIndex" [pageSizeOptions]="pageSizeOptions" [pageSize]="pageSize" showFirstLastButtons="true"></mat-paginator>
+    <mat-table [dataSource]="dataSource" matSort matSortActive="name" matSortDirection="asc" role="treegrid">
+      <ng-container matColumnDef="favorite">
+        <mat-header-cell *matHeaderCellDef class="favorite"></mat-header-cell>
+        <mat-cell *matCellDef="let element" class="favorite">
+          <mat-icon>favorite</mat-icon>
+        </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="albumArt">
+        <mat-header-cell *matHeaderCellDef class="albumArt"></mat-header-cell>
+        <mat-cell *matCellDef="let element" class="albumArt"><img (click)="openAlbumDetailsDialog(element)" [src]="element.albumArt"></mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Album Name</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.name}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="artist">
+        <mat-header-cell *matHeaderCellDef class="artist" mat-sort-header ngClass.lt-sm="no-display">Artist</mat-header-cell>
+        <mat-cell *matCellDef="let element" class="artist" ngClass.lt-sm="no-display">{{element.artist}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="trackCount">
+        <mat-header-cell *matHeaderCellDef class="tracks" mat-sort-header ngClass.lt-sm="no-display">Tracks</mat-header-cell>
+        <mat-cell *matCellDef="let element" class="tracks" ngClass.lt-sm="no-display">{{element.trackCount}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="price">
+        <mat-header-cell *matHeaderCellDef class="price" mat-sort-header ngClass.lt-sm="no-display">Price</mat-header-cell>
+        <mat-cell *matCellDef="let element" class="price" ngClass.lt-sm="no-display">{{element.price | currency:'USD'}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="releaseDate">
+        <mat-header-cell *matHeaderCellDef class="releaseDate" mat-sort-header ngClass.lt-sm="no-display">Released</mat-header-cell>
+        <mat-cell *matCellDef="let element" class="releaseDate" ngClass.lt-sm="no-display">{{element.releaseDate | date:'shortDate'}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="details">
+        <mat-header-cell *matHeaderCellDef class="details" ngClass.lt-sm="no-display"></mat-header-cell>
+        <mat-cell *matCellDef="let element" class="details" ngClass.lt-sm="no-display">
+          <button (click)="openAlbumDetailsDialog(element)" mat-button>
+            <mat-icon>search</mat-icon>
+            details
+          </button>
+        </mat-cell>
+      </ng-container>
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+  </div>
+</div>

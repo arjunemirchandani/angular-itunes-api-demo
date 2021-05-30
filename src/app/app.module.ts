@@ -43,6 +43,8 @@ import {MatProgressBarModule} from "@angular/material/progress-bar";
 import {MatRadioModule} from "@angular/material/radio";
 import {MatSliderModule} from "@angular/material/slider";
 import {AlbumTableComponent} from './view/tables/album-table/album-table.component';
+import {FlexLayoutModule} from "@angular/flex-layout";
+import {AppDrawerComponent} from './view/sections/app-drawer/app-drawer.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +56,8 @@ import {AlbumTableComponent} from './view/tables/album-table/album-table.compone
     ContactPageComponent,
     AlbumDetailsDialogComponent,
     DialogHeaderSectionComponent,
-    AlbumTableComponent
+    AlbumTableComponent,
+    AppDrawerComponent
   ],
   imports: [
     AppRoutingModule,
@@ -105,6 +108,7 @@ import {AlbumTableComponent} from './view/tables/album-table/album-table.compone
     MatProgressBarModule,
     MatRadioModule,
     MatSliderModule,
+    FlexLayoutModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
