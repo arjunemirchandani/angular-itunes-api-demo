@@ -1,5 +1,88 @@
-<div fxFlex="2 0 0" fxLayout="row">
-  <div fxFlex="1 0 0" style="background: #f00"></div>
-  <div fxFlex="4 0 0" style="background: #ff0;min-height: 400px">Hello</div>
-  <div fxFlex="1 0 0" style="background: #f0f"></div>
+<div [ngStyle.lt-sm]="{margin:0}" class="about-page" fxFlex="2 0 0" fxLayout="row">
+  <div fxFlex="0 0 0" fxFlex.gt-sm="1 0 0"></div>
+  <div fxFlex="4 0 0" fxFlex.md="8 0 0">
+    <h1>Sample Contact Form</h1>
+    <p>I've created this page to demonstrate Angular form handling. Please note that this form does not actually send an email to me, it's just for UI demonstration purposes.</p>
+    <hr>
+    <form (ngSubmit)="submit()" *ngIf="!submitted" [formGroup]="formGroup" fxLayout="column" fxLayoutAlign="center stretch" fxLayoutGap="10px" fxLayoutGap.gt-sm="20px">
+      <div fxLayout="column" fxLayout.gt-sm="row" fxLayoutGap="10px" fxLayoutGap.gt-sm="40px">
+        <mat-form-field appearance="fill" fxFlex="1 0 0">
+          <mat-label>First Name</mat-label>
+          <input autocomplete="given-name" formControlName="firstName" matInput placeholder="Ex: John">
+          <mat-hint>Your Given Name</mat-hint>
+          <mat-error *ngIf="formGroup.get('firstName')?.hasError('required')">First Name is <strong>required.</strong></mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill" fxFlex="2 0 0">
+          <mat-label>Last Name</mat-label>
+          <input autocomplete="family-name" formControlName="lastName" matInput placeholder="Ex: Doe">
+          <mat-hint>Your Family Name</mat-hint>
+          <mat-error *ngIf="formGroup.get('firstName')?.hasError('required')">Last Name is <strong>required.</strong></mat-error>
+        </mat-form-field>
+      </div>
+      <div fxLayout="column" fxLayout.gt-sm="row" fxLayoutGap="0" fxLayoutGap.gt-sm="20px">
+        <mat-form-field appearance="fill" fxFlex="2 0 0">
+          <mat-label>Email</mat-label>
+          <input autocomplete="email" formControlName="email" matInput placeholder="Ex: john.doe@example.com">
+          <mat-hint>Your Primary Email Address Please</mat-hint>
+          <mat-error *ngIf="formGroup.get('email')?.hasError('required')">Email is <strong>required</strong></mat-error>
+          <mat-error *ngIf="formGroup.get('email')?.hasError('email')">Email is in an <strong>incorrect format</strong></mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill" fxFlex="2 0 0">
+          <mat-label>How Did You Hear About Us?</mat-label>
+          <mat-select formControlName="referral" placeholder="Select One...">
+            <mat-option value="google">Google</mat-option>
+            <mat-option value="word of mouth">Word of Mouth</mat-option>
+            <mat-option value="magazine">A Magazine</mat-option>
+          </mat-select>
+          <mat-hint>We'll remember to thank them</mat-hint>
+          <mat-error *ngIf="formGroup.get('referral')?.hasError('required')">Please <strong>tell us</strong> how you found us</mat-error>
+        </mat-form-field>
+      </div>
+      <div fxLayout="column" fxLayout.gt-sm="row" fxLayoutGap="0" fxLayoutGap.gt-sm="20px">
+        <mat-form-field appearance="fill" fxFlex="3 0 0">
+          <mat-label>Sample Password</mat-label>
+          <input [type]="hidePassword ? 'password' : 'text'" formControlName="password" matInput>
+          <button (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword" mat-icon-button matSuffix>
+            <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+          <mat-hint>Enter anything you like!</mat-hint>
+          <mat-error *ngIf="formGroup.get('password')?.hasError('required')">Entering a password is <strong>required</strong></mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill" fxFlex="1 0 0">
+          <mat-label>Sample Date</mat-label>
+          <input [matDatepicker]="picker" formControlName="sampleDate" matInput>
+          <mat-datepicker-toggle [for]="picker" matSuffix></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          <mat-hint>A sample date picker</mat-hint>
+          <mat-error *ngIf="formGroup.get('sampleDate')?.hasError('required')">Sample Date is <strong>required</strong></mat-error>
+        </mat-form-field>
+      </div>
+      <div fxLayout="column" fxLayout.gt-sm="row" fxLayoutGap="0" fxLayoutGap.gt-sm="20px">
+        <mat-form-field appearance="fill" fxFlex="3 0 0">
+          <mat-label>Your Message</mat-label>
+          <textarea cdkAutosizeMaxRows="20"
+                    cdkAutosizeMinRows="3"
+                    cdkTextareaAutosize
+                    formControlName="message"
+                    matInput></textarea>
+          <mat-hint>Please think of a message to send us</mat-hint>
+          <mat-error *ngIf="formGroup.get('message')?.hasError('required')">You are <strong>required</strong> to send a message</mat-error>
+        </mat-form-field>
+      </div>
+      <div>
+        <h3>Best time to call:</h3>
+        <mat-radio-group aria-label="Select an option" formControlName="bestTimeToCall">
+          <mat-radio-button value="mornings">Mornings</mat-radio-button>
+          <mat-radio-button value="evenings">Evenings</mat-radio-button>
+          <mat-radio-button value="never">Never</mat-radio-button>
+        </mat-radio-group>
+      </div>
+      <button mat-button type="submit">Send Message</button>
+    </form>
+    <div *ngIf="submitted">
+      <h2>Thanks for your submission!</h2>
+      <p>We appreciate you taking the time in testing out this form... cheers!</p>
+    </div>
+  </div>
+  <div fxFlex="0 0 0" fxFlex.gt-sm="1 0 0"></div>
 </div>

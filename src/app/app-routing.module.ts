@@ -7,9 +7,9 @@ import {TablePageComponent} from "./view/pages/table-page/table-page.component";
 
 const routes: Routes = [
   {path: '', component: AboutPageComponent, pathMatch: 'full'},
-  {path: 'table', component: TablePageComponent, pathMatch: 'full'},
-  {path: 'grid', component: GridPageComponent, pathMatch: 'full'},
-  {path: 'contact', component: ContactPageComponent, pathMatch: 'full'},
+  {path: 'table', component: TablePageComponent},
+  {path: 'grid', component: GridPageComponent},
+  {path: 'contact', component: ContactPageComponent},
   {path: '**', redirectTo: ''}
 ];
 
