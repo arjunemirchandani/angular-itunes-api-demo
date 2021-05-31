@@ -46,6 +46,8 @@ import {AppDrawerComponent} from './view/sections/app-drawer/app-drawer.componen
 import {GridPageComponent} from './view/pages/grid-page/grid-page.component';
 import {AlbumTableComponent} from "./view/sections/album-table/album-table.component";
 import {TablePageComponent} from './view/pages/table-page/table-page.component';
+import {StoreModule} from "@ngrx/store";
+import {pageViewsReducer} from "./state/pageViews/page-views.reducer";
 
 @NgModule({
   declarations: [
@@ -65,6 +67,9 @@ import {TablePageComponent} from './view/pages/table-page/table-page.component';
     AppRoutingModule,
     BrowserModule,
     BrowserAnimationsModule,
+    StoreModule.forRoot({
+      pageViews: pageViewsReducer
+    }),
     HttpClientModule,
     NgxSpinnerModule,
     MatTableModule,

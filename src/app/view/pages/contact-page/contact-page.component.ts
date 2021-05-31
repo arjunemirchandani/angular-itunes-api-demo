@@ -3,6 +3,7 @@ import {Title} from "@angular/platform-browser";
 import {environment} from "../../../../environments/environment";
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import swal, {SweetAlertOptions} from 'sweetalert2';
+import {PageViewsService} from "../../../control/services/pageViews/page-views.service";
 
 @Component({
   selector: 'app-contact-page',
@@ -15,11 +16,13 @@ export class ContactPageComponent implements OnInit {
   hidePassword = true
 
   constructor(private browserTitle: Title,
+              private pageViewsService: PageViewsService,
               private formBuilder: FormBuilder) {
   }
 
   ngOnInit(): void {
     this.browserTitle.setTitle(`Contact | ${environment.appTitle}`);
+    this.pageViewsService.increment();
     this.formGroup = this.formBuilder.group({
       firstName: new FormControl('', [Validators.required]),
       lastName: new FormControl('', [Validators.required]),

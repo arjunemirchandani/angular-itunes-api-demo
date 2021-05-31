@@ -5,6 +5,7 @@ import {ItunesService} from "../../../control/services/itunes/itunes.service";
 import {environment} from "../../../../environments/environment";
 import {AlbumDetailsDialogComponent} from "../../dialogs/album-details-dialog/album-details-dialog.component";
 import {MatDialog} from "@angular/material/dialog";
+import {PageViewsService} from "../../../control/services/pageViews/page-views.service";
 
 @Component({
   selector: 'app-grid-page',
@@ -15,12 +16,14 @@ export class GridPageComponent implements OnInit {
   public albums!: AlbumVO[];
 
   constructor(private browserTitle: Title,
+              private pageViewsService: PageViewsService,
               private dialog: MatDialog,
               protected iTunesService: ItunesService) {
   }
 
   ngOnInit(): void {
     this.browserTitle.setTitle(`Grid Layout | ${environment.appTitle}`);
+    this.pageViewsService.increment();
     this.iTunesService.getTopAlbums().subscribe(response => this.albums = response);
   }
 
