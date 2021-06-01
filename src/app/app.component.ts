@@ -6,13 +6,21 @@ import {ItunesService} from "./control/services/albums/itunes.service";
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.sass']
 })
+/**
+ * Main application component
+ */
 export class AppComponent implements OnInit {
   title = 'angular-itunes-api-demo';
 
+  /**
+   * constructor.
+   * @param iTunesService
+   */
   constructor(protected iTunesService: ItunesService) {
   }
 
   ngOnInit(): void {
+    // load top albums from iTunes
     this.iTunesService.getTopAlbums().subscribe();
   }
 }

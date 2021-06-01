@@ -1,0 +1,3 @@
+Sitemap: https://angular-itunes-api-demo.arjune.me/sitemap.xml
+User-agent: *
+Disallow:

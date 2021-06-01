@@ -4,7 +4,13 @@
     <h1>Sample Contact Form</h1>
     <p>I've created this page to demonstrate Angular form handling. Please note that this form does not actually send an email to me, it's just for UI demonstration purposes.</p>
     <hr>
-    <form (ngSubmit)="submit()" *ngIf="!submitted" [formGroup]="formGroup" fxLayout="column" fxLayoutAlign="center stretch" fxLayoutGap="10px" fxLayoutGap.gt-sm="20px">
+    <form (ngSubmit)="submit()"
+          *ngIf="!submitted"
+          [formGroup]="formGroup"
+          fxLayout="column"
+          fxLayoutAlign="center stretch"
+          fxLayoutGap="10px"
+          fxLayoutGap.gt-sm="20px">
       <div fxLayout="column" fxLayout.gt-sm="row" fxLayoutGap="10px" fxLayoutGap.gt-sm="40px">
         <mat-form-field appearance="fill" fxFlex="1 0 0">
           <mat-label>First Name</mat-label>
@@ -42,7 +48,10 @@
         <mat-form-field appearance="fill" fxFlex="3 0 0">
           <mat-label>Sample Password</mat-label>
           <input [type]="hidePassword ? 'password' : 'text'" formControlName="password" matInput>
-          <button (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword" mat-icon-button matSuffix>
+          <button (click)="hidePassword = !hidePassword"
+                  [attr.aria-label]="'Hide password'"
+                  [attr.aria-pressed]="hidePassword"
+                  mat-icon-button matSuffix>
             <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
           </button>
           <mat-hint>Enter anything you like!</mat-hint>

@@ -16,7 +16,7 @@
       </ng-container>
       <ng-container matColumnDef="albumArt">
         <mat-header-cell *matHeaderCellDef class="albumArt"></mat-header-cell>
-        <mat-cell *matCellDef="let element" class="albumArt"><img (click)="openAlbumDetailsDialog(element)" [src]="element.albumArt"></mat-cell>
+        <mat-cell *matCellDef="let element" class="albumArt"><img (click)="openAlbumDetailsDialog(element)" [src]="element.albumArt" alt="Album Cover"></mat-cell>
       </ng-container>
       <ng-container matColumnDef="name">
         <mat-header-cell *matHeaderCellDef mat-sort-header>Album Name</mat-header-cell>

@@ -1,8 +1,8 @@
+import {AppUtils} from "../../utils/app/app-utils";
+
 /**
  * Album value object
  */
-import {AppUtils} from "../../utils/app/app-utils";
-
 export class AlbumVO {
   title!: string;
   name!: string;
@@ -33,6 +33,7 @@ export class AlbumVO {
    * @param obj
    */
   static fromJson(obj: any) {
+    // return album vo with colons removed from key names
     return new AlbumVO(AppUtils.simplifyPropertyNames(obj));
   }
 }

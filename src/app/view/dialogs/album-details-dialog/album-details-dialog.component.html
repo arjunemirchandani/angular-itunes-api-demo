@@ -1,6 +1,6 @@
 <app-dialog-header-section dialogTitle="Album Details"></app-dialog-header-section>
 <div *ngIf="album" class="main" mat-dialog-content>
-  <img [src]="album.albumArt">
+  <img [src]="album.albumArt" alt="Album Cover">
   <div class="info">
     <div>Album Name: {{album.name}}</div>
     <div>Artist: {{album.artist}}</div>

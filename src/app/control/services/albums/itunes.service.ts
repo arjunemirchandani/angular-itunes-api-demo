@@ -38,11 +38,13 @@ export class ItunesService {
   public getTopAlbums(limit = 100, responseFormat = 'json') {
     this.spinner.show().then();
     return this.http.get<any>(environment.iTunesRssUrl + '/topalbums/limit=' + limit + '/' + responseFormat).pipe(
-      tap(() => this.spinner.hide()),
       tap(() => this.snackBar.open('iTunes Service', 'Top 100 Albums Feed Fetched!', {duration: 1500})),
       tap(response => AppUtils.consoleLog("Raw Feed Response:", response)),
+      // amp raw feed to array of albums vo
       map(response => response.feed.entry.map((entry: any) => AlbumVO.fromJson(entry))),
-      tap((list: []) => this.store.dispatch(updateList({list})))
+      // save new album list to model
+      tap((list: []) => this.store.dispatch(updateList({list}))),
+      tap(() => this.spinner.hide())
     )
   }
 }

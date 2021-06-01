@@ -1,10 +1,13 @@
-@mixin flip-card-back($fontColor, $bgColor)
+// creates a back component for album covers
+@mixin album-flip-card-back($fontColor, $bgColor)
   box-sizing: border-box
   padding: 10px
   background-color: $bgColor
   color: $fontColor
   transform: rotateY(180deg)
+  overflow: hidden
 
+// sets a custom aspect ratio for a given album flip card
 @mixin aspect-ratio($width, $height)
   position: relative
   &:before
@@ -12,7 +15,7 @@
     content: ""
     width: 100%
     padding-top: ($height / $width) * 100%
-  > .flip-card-inner
+  > .album-flip-card-inner
     position: absolute
     top: 0
     left: 0

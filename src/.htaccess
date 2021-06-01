@@ -2,11 +2,10 @@ DirectorySlash Off
 DirectoryIndex index.php
 RewriteEngine On
 
-RewriteRule ^(.well-known|sitemap.xml|robots.txt|webservice|install|download|temp)($|/) - [L]
+RewriteRule ^(.well-known|sitemap.xml|robots.txt)($|/) - [L]
 RewriteCond %{HTTPS} off
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-RewriteRule ^(webservice|install|download|temp)($|/) - [L]
-RewriteCond %{REQUEST_URI} !^/(index|installer)\.php$ [NC]
+RewriteCond %{REQUEST_URI} !^/(index)\.php$ [NC]
 RewriteCond %{REQUEST_URI} !\.(gif|jpe?g|png|css|js|ico|mp4)$
 RewriteRule ^(.+)$ /index.php [L,QSA]
 
