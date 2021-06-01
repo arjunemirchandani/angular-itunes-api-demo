@@ -42,7 +42,7 @@ export class ItunesService {
       tap(() => this.snackBar.open('iTunes Service', 'Top 100 Albums Feed Fetched!', {duration: 1500})),
       tap(response => AppUtils.consoleLog("Raw Feed Response:", response)),
       map(response => response.feed.entry.map((entry: any) => AlbumVO.fromJson(entry))),
-      tap(response => this.store.dispatch(updateList(response)))
+      tap((list: []) => this.store.dispatch(updateList({list})))
     )
   }
 }

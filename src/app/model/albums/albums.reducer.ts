@@ -6,13 +6,7 @@ export let albumsList: AlbumVO[] = [];
 
 const _albumsReducer = createReducer(
   albumsList,
-  on(updateList, (state, list: any) => {
-    let albumsList: any = [];
-    console.log("In Item List:", list);
-    Object.keys(list).map((personNamedIndex: any) => personNamedIndex != 'type' ? albumsList[personNamedIndex] = list[personNamedIndex] : null);
-    console.log("New Item List:", albumsList);
-    return albumsList;
-  })
+  on(updateList, (state, modal: any) => modal.list)
 );
 
 export function albumsReducer(state: any, action: any) {

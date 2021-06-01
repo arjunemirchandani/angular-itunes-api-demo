@@ -6,7 +6,18 @@
     <hr>
     <div class="album-container" fxFlex="4 0 0" fxFlex.md="8 0 0" fxLayout="row wrap wrap" fxLayoutAlign="center center wrap">
       <div *ngFor="let album of albums" class="album-box" fxFlex="0 0 20%" fxFlex.lt-md="0 0 25%" fxFlex.lt-sm="0 0 33%">
-        <img (click)="openAlbumDetailsDialog(album)" [src]="album.albumArt">
+        <div (click)="openAlbumDetailsDialog(album)" class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img [src]="album.albumArt" alt="AlbumCover">
+            </div>
+            <div class="flip-card-back" fxLayout="column" fxLayoutAlign="center center">
+              <p class="name">{{album.name}}</p>
+              <p class="artist">{{album.artist}}</p>
+              <p class="price">{{album.price | currency: 'USD'}}</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

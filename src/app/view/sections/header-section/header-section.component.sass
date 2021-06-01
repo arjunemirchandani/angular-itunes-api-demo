@@ -1,11 +1,13 @@
+@import '~src/sass/variables'
+
 \:host
-  background: rgb(61, 94, 109)
-  background: linear-gradient(180deg, rgba(61, 94, 109, 1) 0%, rgba(44, 71, 83, 1) 100%)
+  background: $header-background-color
+  background: $header-background-gradient
   min-height: 50px
   border-bottom: 1px solid #444
   box-sizing: border-box
   padding: 0 5px
-  color: #fff
+  color: $header-font-color
   text-shadow: 1px 1px 1px rgba(0, 0, 0, .5)
   font-family: "Roboto", sans-serif
   display: flex
@@ -22,7 +24,7 @@
     margin-left: 10px
     cursor: default
     outline: none
-    font-family: Limelight, sans-serif
+    font-family: $header-font-family
     white-space: nowrap
 
   div.link-container
