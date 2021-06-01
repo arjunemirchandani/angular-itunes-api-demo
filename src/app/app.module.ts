@@ -47,7 +47,8 @@ import {GridPageComponent} from './view/pages/grid-page/grid-page.component';
 import {AlbumTableComponent} from "./view/sections/album-table/album-table.component";
 import {TablePageComponent} from './view/pages/table-page/table-page.component';
 import {StoreModule} from "@ngrx/store";
-import {pageViewsReducer} from "./state/pageViews/page-views.reducer";
+import {pageViewsReducer} from "./model/pageViews/page-views.reducer";
+import {albumsReducer} from "./model/albums/albums.reducer";
 
 @NgModule({
   declarations: [
@@ -68,6 +69,7 @@ import {pageViewsReducer} from "./state/pageViews/page-views.reducer";
     BrowserModule,
     BrowserAnimationsModule,
     StoreModule.forRoot({
+      albums: albumsReducer,
       pageViews: pageViewsReducer
     }),
     HttpClientModule,

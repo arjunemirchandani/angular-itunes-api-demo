@@ -4,6 +4,7 @@ import {environment} from "../../../../environments/environment";
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import swal, {SweetAlertOptions} from 'sweetalert2';
 import {PageViewsService} from "../../../control/services/pageViews/page-views.service";
+import {AppUtils} from "../../../control/utils/app/app-utils";
 
 @Component({
   selector: 'app-contact-page',
@@ -37,7 +38,7 @@ export class ContactPageComponent implements OnInit {
 
   submit() {
     this.formGroup.markAllAsTouched();
-    console.log("Form Value:", this.formGroup.value);
+    AppUtils.consoleLog("Form Value:", this.formGroup.value);
     if (this.formGroup.valid) {
       this.submitted = true;
       return swal.fire({

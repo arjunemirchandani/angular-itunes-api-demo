@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Store} from "@ngrx/store";
-import {incrementPageView} from "../../../state/pageViews/page-views.actions";
+import {incrementPageView} from "../../../model/pageViews/page-views.actions";
 
 @Injectable({
   providedIn: 'root'

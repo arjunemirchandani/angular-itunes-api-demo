@@ -1,11 +1,13 @@
 import {Injectable} from '@angular/core';
-import {environment} from "../../../../environments/environment";
+import {Store} from "@ngrx/store";
 import {HttpClient} from "@angular/common/http";
-import {map, tap} from "rxjs/operators";
 import {NgxSpinnerService} from "ngx-spinner";
-import {AlbumVO} from "../../vo/album-vo";
 import {MatSnackBar} from "@angular/material/snack-bar";
-import {AppUtils} from "../../util/app-utils";
+import {map, tap} from "rxjs/operators";
+import {environment} from "../../../../environments/environment";
+import {AppUtils} from "../../utils/app/app-utils";
+import {AlbumVO} from "../../vos/album/album-vo";
+import {updateList} from "../../../model/albums/albums.actions";
 
 /**
  * Service that fetches data from the itunes public rss feed
@@ -18,10 +20,12 @@ export class ItunesService {
   /**
    * constructor
    * @param http
+   * @param store
    * @param snackBar
    * @param spinner
    */
   constructor(protected http: HttpClient,
+              private readonly store: Store<{ count: number }>,
               protected snackBar: MatSnackBar,
               protected spinner: NgxSpinnerService) {
   }
@@ -38,6 +42,7 @@ export class ItunesService {
       tap(() => this.snackBar.open('iTunes Service', 'Top 100 Albums Feed Fetched!', {duration: 1500})),
       tap(response => AppUtils.consoleLog("Raw Feed Response:", response)),
       map(response => response.feed.entry.map((entry: any) => AlbumVO.fromJson(entry))),
+      tap(response => this.store.dispatch(updateList(response)))
     )
   }
 }

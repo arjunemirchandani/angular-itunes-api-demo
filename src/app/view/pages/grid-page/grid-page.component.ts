@@ -1,11 +1,14 @@
 import {Component, OnInit} from '@angular/core';
-import {AlbumVO} from "../../../control/vo/album-vo";
 import {Title} from "@angular/platform-browser";
-import {ItunesService} from "../../../control/services/itunes/itunes.service";
 import {environment} from "../../../../environments/environment";
 import {AlbumDetailsDialogComponent} from "../../dialogs/album-details-dialog/album-details-dialog.component";
 import {MatDialog} from "@angular/material/dialog";
+import {Observable} from "rxjs";
+import {Store} from "@ngrx/store";
+import {albumsList} from "../../../model/albums/albums.selectors";
+import {AppState} from "../../../model/app.state";
 import {PageViewsService} from "../../../control/services/pageViews/page-views.service";
+import {AlbumVO} from "../../../control/vos/album/album-vo";
 
 @Component({
   selector: 'app-grid-page',
@@ -13,21 +16,22 @@ import {PageViewsService} from "../../../control/services/pageViews/page-views.s
   styleUrls: ['./grid-page.component.sass']
 })
 export class GridPageComponent implements OnInit {
-  public albums!: AlbumVO[];
+  albums$: Observable<AppState> = this.store.select(albumsList.projector);
+  albums!: any;
 
   constructor(private browserTitle: Title,
               private pageViewsService: PageViewsService,
               private dialog: MatDialog,
-              protected iTunesService: ItunesService) {
+              private store: Store) {
   }
 
   ngOnInit(): void {
     this.browserTitle.setTitle(`Grid Layout | ${environment.appTitle}`);
     this.pageViewsService.increment();
-    this.iTunesService.getTopAlbums().subscribe(response => this.albums = response);
+    this.albums$.subscribe(response => this.albums = response.albums)
   }
 
-  openAlbumDetailsDialog(album: AlbumVO) {
+  openAlbumDetailsDialog(album: AlbumVO | null) {
     this.dialog.open(AlbumDetailsDialogComponent, {data: {album}, panelClass: ['standard-dialog']})
   }
 }

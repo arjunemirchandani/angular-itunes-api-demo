@@ -1,6 +1,6 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA} from "@angular/material/dialog";
-import {AlbumVO} from "../../../control/vo/album-vo";
+import {AlbumVO} from "../../../control/vos/album/album-vo";
 
 @Component({
   selector: 'app-album-details-dialog',

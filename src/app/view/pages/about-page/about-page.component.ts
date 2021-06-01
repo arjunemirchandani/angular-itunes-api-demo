@@ -11,7 +11,7 @@ import {PageViewsService} from "../../../control/services/pageViews/page-views.s
 export class AboutPageComponent implements OnInit {
 
   constructor(private browserTitle: Title,
-              private pageViewsService: PageViewsService,) {
+              private pageViewsService: PageViewsService) {
   }
 
   ngOnInit(): void {

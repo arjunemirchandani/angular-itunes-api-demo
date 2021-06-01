@@ -1,7 +1,7 @@
 /**
  * A set of generic utilities that can be utilized anywhere in the application
  */
-import {environment} from "../../../environments/environment";
+import {environment} from "../../../../environments/environment";
 
 export class AppUtils {
 

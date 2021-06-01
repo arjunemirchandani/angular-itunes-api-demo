@@ -5,8 +5,7 @@ export const totalPageViews: number = 0;
 
 const _pageViewsReducer = createReducer(
   totalPageViews,
-  on(incrementPageView, (state) => state += 1
-  )
+  on(incrementPageView, (state) => state += 1)
 );
 
 export function pageViewsReducer(state: any, action: any) {

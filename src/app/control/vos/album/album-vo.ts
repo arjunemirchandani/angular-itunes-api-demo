@@ -1,8 +1,8 @@
-import {AppUtils} from "../util/app-utils";
-
 /**
  * Album value object
  */
+import {AppUtils} from "../../utils/app/app-utils";
+
 export class AlbumVO {
   title!: string;
   name!: string;
@@ -23,7 +23,6 @@ export class AlbumVO {
     this.trackCount = source?.itemCount?.label;
     this.price = source?.price?.attributes?.amount;
     this.releaseDate = source?.releaseDate?.label;
-
     if (source?.image && source?.image.length === 3) {
       this.albumArt = source.image[2].label;
     }
@@ -36,5 +35,4 @@ export class AlbumVO {
   static fromJson(obj: any) {
     return new AlbumVO(AppUtils.simplifyPropertyNames(obj));
   }
-
 }
