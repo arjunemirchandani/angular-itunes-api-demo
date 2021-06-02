@@ -7,6 +7,9 @@ import {MatDialog} from "@angular/material/dialog";
 import {AlbumDetailsDialogComponent} from "../../dialogs/album-details-dialog/album-details-dialog.component";
 import {AppUtils} from "../../../control/utils/app/app-utils";
 import {AlbumVO} from "../../../control/vos/album/album-vo";
+import {ItunesService} from "../../../control/services/albums/itunes.service";
+import {Store} from "@ngrx/store";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-album-table',
@@ -16,6 +19,8 @@ import {AlbumVO} from "../../../control/vos/album/album-vo";
 export class AlbumTableComponent implements OnInit, AfterViewInit {
   @ViewChild(MatPaginator, {static: false}) paginator!: MatPaginator;
   @ViewChild(MatSort, {static: false}) sort!: MatSort;
+  favorites$: Observable<string[]> = this.store.select("favorites");
+  favorites!: Array<string>;
   public dataSource: MatTableDataSource<any> = new MatTableDataSource<any>();
   public displayedColumns: any[] = ['favorite', 'albumArt', 'name', 'artist', 'trackCount', 'price', 'releaseDate', 'details'];
   public pageSizeOptions = [5, 10, 25, 50, 100];
@@ -25,6 +30,8 @@ export class AlbumTableComponent implements OnInit, AfterViewInit {
   public formGroup!: FormGroup;
 
   constructor(private dialog: MatDialog,
+              private readonly store: Store<{ favorites: Array<string> }>,
+              private iTunesService: ItunesService,
               private formBuilder: FormBuilder) {
   }
 
@@ -37,6 +44,7 @@ export class AlbumTableComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
+    this.favorites$.subscribe(favorites => this.favorites = favorites);
     this.formGroup = this.formBuilder.group({
       searchText: new FormControl(''),
     });
@@ -53,5 +61,13 @@ export class AlbumTableComponent implements OnInit, AfterViewInit {
 
   filterResults(searchText: string) {
     this.dataSource.filter = searchText;
+  }
+
+  toggleFavorite(album: any) {
+    this.iTunesService.toggleFavorite(album);
+  }
+
+  isFavorite(favorites: string[], id: string) {
+    return favorites.includes(id);
   }
 }

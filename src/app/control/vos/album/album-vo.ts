@@ -1,9 +1,11 @@
 import {AppUtils} from "../../utils/app/app-utils";
+import {Album} from "../../../model/albums/albums.model";
 
 /**
  * Album value object
  */
-export class AlbumVO {
+export class AlbumVO implements Album {
+  id!: string;
   title!: string;
   name!: string;
   artist!: string;
@@ -11,18 +13,22 @@ export class AlbumVO {
   price!: number;
   releaseDate!: string;
   albumArt!: string;
+  isFavorite = false;
 
   /**
    * constructor
    * @param source
    */
   constructor(source: any = {}) {
+    this.id = source?.id?.label;
     this.title = source?.title?.label;
     this.name = source?.name?.label;
     this.artist = source?.artist?.label;
     this.trackCount = source?.itemCount?.label;
     this.price = source?.price?.attributes?.amount;
     this.releaseDate = source?.releaseDate?.label;
+    this.releaseDate = source?.releaseDate?.label;
+    // get the third image from the array--largest sized thumbnail
     if (source?.image && source?.image.length === 3) {
       this.albumArt = source.image[2].label;
     }

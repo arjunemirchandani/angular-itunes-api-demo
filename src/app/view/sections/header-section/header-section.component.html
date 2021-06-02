@@ -1,6 +1,6 @@
 <div fxFill fxLayout="row" fxLayoutAlign="stretch center">
   <div ngClass.lt-sm="no-display">
-    <img alt="App Logo" src="/assets/images/headphones.png">
+    <img (click)="onLogoClick()" alt="App Logo" src="/assets/images/headphones.png">
   </div>
   <div class="title" fxFlex="1 0 0" routerLink="/">iTunes Top 100 Albums</div>
   <div class="link-container" fxFlex="2 0 0" fxLayout="row" fxLayoutAlign="end center" ngClass.lt-sm="no-display">

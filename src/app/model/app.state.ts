@@ -1,13 +1,16 @@
 import {PageViews} from "./pageViews/page-views.model";
-import {Albums} from "./albums/albums.model";
+import {Album} from "./albums/albums.model";
 
 /**
  * Application Model state
  */
 export interface AppState {
 
-  // list of albums
-  albums: Albums,
+  // array of album id strings that have been to favorites
+  favorites: Array<string>;
+
+  // array of albums
+  albums: Array<Album>;
 
   // application page views
   pageViews: PageViews

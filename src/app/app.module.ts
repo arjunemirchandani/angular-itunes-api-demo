@@ -35,6 +35,7 @@ import {TablePageComponent} from './view/pages/table-page/table-page.component';
 import {StoreModule} from "@ngrx/store";
 import {pageViewsReducer} from "./model/pageViews/page-views.reducer";
 import {albumsReducer} from "./model/albums/albums.reducer";
+import {favoritesReducer} from "./model/favorites/favorites.reducer";
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import {albumsReducer} from "./model/albums/albums.reducer";
   ],
   imports: [
     StoreModule.forRoot({
+      favorites: favoritesReducer,
       albums: albumsReducer,
       pageViews: pageViewsReducer
     }),

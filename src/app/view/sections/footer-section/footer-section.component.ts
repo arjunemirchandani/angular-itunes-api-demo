@@ -4,7 +4,6 @@ import {Store} from "@ngrx/store";
 import {pageViewsTotal} from "../../../model/pageViews/page-views.selectors";
 import {AppState} from "../../../model/app.state";
 import {albumsList} from "../../../model/albums/albums.selectors";
-import {AppUtils} from "../../../control/utils/app/app-utils";
 
 @Component({
   selector: 'app-footer-section',
@@ -16,6 +15,6 @@ export class FooterSectionComponent {
   albums$: Observable<AppState> = this.store.select(albumsList.projector);
 
   constructor(private store: Store) {
-    this.albums$.subscribe(r => AppUtils.consoleLog('Footer:', r));
+    this.albums$.subscribe();
   }
 }

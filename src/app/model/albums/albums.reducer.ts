@@ -1,13 +1,12 @@
 import {createReducer, on} from '@ngrx/store';
 import {updateList} from "./albums.actions";
-import {AlbumVO} from "../../control/vos/album/album-vo";
+import {Album} from "./albums.model";
 
-export let albumsList: AlbumVO[] = [];
+export let initialState: Array<Album> = [];
 
 const _albumsReducer = createReducer(
-  albumsList,
-  on(updateList, (state, modal: any) => modal.list)
-);
+  initialState,
+  on(updateList, (state, action: any) => action.list));
 
 export function albumsReducer(state: any, action: any) {
   return _albumsReducer(state, action);

@@ -1,4 +1,5 @@
 import {Component, EventEmitter, Output} from '@angular/core';
+import {ItunesService} from "../../../control/services/albums/itunes.service";
 
 @Component({
   selector: 'app-header-section',
@@ -7,4 +8,15 @@ import {Component, EventEmitter, Output} from '@angular/core';
 })
 export class HeaderSectionComponent {
   @Output() toggleDrawer: EventEmitter<any> = new EventEmitter<any>();
+
+  /**
+   * constructor.
+   * @param iTunesService
+   */
+  constructor(protected iTunesService: ItunesService) {
+  }
+
+  onLogoClick() {
+    this.iTunesService.getTopAlbums().subscribe();
+  }
 }

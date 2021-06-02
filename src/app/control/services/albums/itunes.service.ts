@@ -8,6 +8,7 @@ import {environment} from "../../../../environments/environment";
 import {AppUtils} from "../../utils/app/app-utils";
 import {AlbumVO} from "../../vos/album/album-vo";
 import {updateList} from "../../../model/albums/albums.actions";
+import {toggleFavorite} from "../../../model/favorites/favorites.actions";
 
 /**
  * Service that fetches data from the itunes public rss feed
@@ -25,7 +26,7 @@ export class ItunesService {
    * @param spinner
    */
   constructor(protected http: HttpClient,
-              private readonly store: Store<{ count: number }>,
+              private readonly store: Store,
               protected snackBar: MatSnackBar,
               protected spinner: NgxSpinnerService) {
   }
@@ -46,5 +47,9 @@ export class ItunesService {
       tap((list: []) => this.store.dispatch(updateList({list}))),
       tap(() => this.spinner.hide())
     )
+  }
+
+  public toggleFavorite(album: AlbumVO) {
+    this.store.dispatch(toggleFavorite({album}));
   }
 }
