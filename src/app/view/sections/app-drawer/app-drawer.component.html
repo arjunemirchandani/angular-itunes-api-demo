@@ -1,5 +1,2 @@
 <div class="title">Sitemap</div>
-<a (click)="toggleDrawer.emit()" [routerLinkActiveOptions]="{exact: true}" routerLink="/" routerLinkActive="nav-active">About</a>
-<a (click)="toggleDrawer.emit()" routerLink="/table" routerLinkActive="nav-active">Table Layout</a>
-<a (click)="toggleDrawer.emit()" routerLink="/grid" routerLinkActive="nav-active">Grid Layout</a>
-<a (click)="toggleDrawer.emit()" routerLink="/contact" routerLinkActive="nav-active">Contact</a>
+<a (click)="toggleDrawer.emit()" *ngFor="let appMenu of appMenu$|async" [routerLinkActiveOptions]="{exact: true}" [routerLink]="appMenu.routerLink" routerLinkActive="nav-active">{{appMenu.label}}</a>

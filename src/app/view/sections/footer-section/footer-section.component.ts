@@ -15,6 +15,6 @@ export class FooterSectionComponent {
    * constructor
    * @param store
    */
-  constructor(private store: Store) {
+  constructor(private store: Store<number>) {
   }
 }

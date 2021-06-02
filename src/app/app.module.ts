@@ -36,6 +36,7 @@ import {StoreModule} from "@ngrx/store";
 import {pageViewsReducer} from "./model/pageViews/page-views.reducer";
 import {albumsReducer} from "./model/albums/albums.reducer";
 import {favoritesReducer} from "./model/favorites/favorites.reducer";
+import {appMenuReducer} from "./model/appMenu/app-menu.reducer";
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import {favoritesReducer} from "./model/favorites/favorites.reducer";
   ],
   imports: [
     StoreModule.forRoot({
+      appMenu: appMenuReducer,
       albums: albumsReducer,
       favorites: favoritesReducer,
       pageViews: pageViewsReducer
