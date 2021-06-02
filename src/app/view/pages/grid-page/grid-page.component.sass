@@ -1,26 +1,12 @@
 // Import mixin functions
 @import '~src/sass/mixins'
 
-div.main
-  box-sizing: border-box
-  padding: 20px
-
-  h1
-    font-family: "Open Sans", sans-serif
-    font-weight: 300
-    color: #555
-    margin-top: 20px
-
-  p
-    font-family: "Roboto", sans-serif
-    color: #333
-
-  hr
-    margin: 20px 0
+div.app-page
+  @include app-page()
 
   div
     div.album-container
-      margin: -5px
+      margin: 0 -5px
 
       p
         color: #fff

@@ -1,29 +1,8 @@
-div.about-page
-  box-sizing: border-box
-  padding: 20px
+// Import mixin functions
+@import '~src/sass/mixins'
 
-  h1
-    font-family: "Open Sans", sans-serif
-    font-weight: 300
-    color: #555
-    margin-top: 20px
-
-  h2
-    font-family: "Open Sans", sans-serif
-    font-weight: 300
-    color: #555
-
-  h3
-    font-family: "Open Sans", sans-serif
-    font-weight: 300
-    color: #555
-
-  p
-    font-family: "Roboto", sans-serif
-    color: #333
-
-  hr
-    margin: 20px 0
+div.app-page
+  @include app-page()
 
   .mat-button
     background: #b0c8d2
