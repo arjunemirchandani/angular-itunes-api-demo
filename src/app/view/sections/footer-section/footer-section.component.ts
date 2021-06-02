@@ -1,9 +1,7 @@
 import {Component} from '@angular/core';
 import {Observable} from "rxjs";
 import {Store} from "@ngrx/store";
-import {pageViewsTotal} from "../../../model/pageViews/page-views.selectors";
-import {AppState} from "../../../model/app.state";
-import {albumsList} from "../../../model/albums/albums.selectors";
+import {pageViews} from "../../../model/pageViews/page-views.selectors";
 
 @Component({
   selector: 'app-footer-section',
@@ -11,10 +9,8 @@ import {albumsList} from "../../../model/albums/albums.selectors";
   styleUrls: ['./footer-section.component.sass']
 })
 export class FooterSectionComponent {
-  pageViews$: Observable<AppState> = this.store.select(pageViewsTotal.projector);
-  albums$: Observable<AppState> = this.store.select(albumsList.projector);
+  pageViews$: Observable<number> = this.store.select(pageViews.projector);
 
   constructor(private store: Store) {
-    this.albums$.subscribe();
   }
 }

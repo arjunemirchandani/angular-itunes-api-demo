@@ -6,9 +6,8 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 import {map, tap} from "rxjs/operators";
 import {environment} from "../../../../environments/environment";
 import {AppUtils} from "../../utils/app/app-utils";
-import {AlbumVO} from "../../vos/album/album-vo";
 import {updateList} from "../../../model/albums/albums.actions";
-import {toggleFavorite} from "../../../model/favorites/favorites.actions";
+import {Album, IAlbum} from "../../../model/albums/albums.model";
 
 /**
  * Service that fetches data from the itunes public rss feed
@@ -26,7 +25,7 @@ export class ItunesService {
    * @param spinner
    */
   constructor(protected http: HttpClient,
-              private readonly store: Store,
+              private readonly store: Store<Array<IAlbum>>,
               protected snackBar: MatSnackBar,
               protected spinner: NgxSpinnerService) {
   }
@@ -42,14 +41,10 @@ export class ItunesService {
       tap(() => this.snackBar.open('iTunes Service', 'Top 100 Albums Feed Fetched!', {duration: 1500})),
       tap(response => AppUtils.consoleLog("Raw Feed Response:", response)),
       // amp raw feed to array of albums vo
-      map(response => response.feed.entry.map((entry: any) => AlbumVO.fromJson(entry))),
+      map(response => response.feed.entry.map((entry: any) => Album.fromJson(entry))),
       // save new album list to model
       tap((list: []) => this.store.dispatch(updateList({list}))),
       tap(() => this.spinner.hide())
     )
-  }
-
-  public toggleFavorite(album: AlbumVO) {
-    this.store.dispatch(toggleFavorite({album}));
   }
 }

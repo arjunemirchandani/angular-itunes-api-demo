@@ -6,10 +6,11 @@ import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
 import {MatDialog} from "@angular/material/dialog";
 import {AlbumDetailsDialogComponent} from "../../dialogs/album-details-dialog/album-details-dialog.component";
 import {AppUtils} from "../../../control/utils/app/app-utils";
-import {AlbumVO} from "../../../control/vos/album/album-vo";
-import {ItunesService} from "../../../control/services/albums/itunes.service";
+import {Album} from "../../../model/albums/albums.model";
 import {Store} from "@ngrx/store";
 import {Observable} from "rxjs";
+import {FavoritesService} from "../../../control/services/favorites/favorites.service";
+import {favorites} from "../../../model/favorites/favorites.selectors";
 
 @Component({
   selector: 'app-album-table',
@@ -19,7 +20,7 @@ import {Observable} from "rxjs";
 export class AlbumTableComponent implements OnInit, AfterViewInit {
   @ViewChild(MatPaginator, {static: false}) paginator!: MatPaginator;
   @ViewChild(MatSort, {static: false}) sort!: MatSort;
-  favorites$: Observable<string[]> = this.store.select("favorites");
+  favorites$: Observable<string[]> = this.store.select(favorites.projector);
   favorites!: Array<string>;
   public dataSource: MatTableDataSource<any> = new MatTableDataSource<any>();
   public displayedColumns: any[] = ['favorite', 'albumArt', 'name', 'artist', 'trackCount', 'price', 'releaseDate', 'details'];
@@ -31,7 +32,7 @@ export class AlbumTableComponent implements OnInit, AfterViewInit {
 
   constructor(private dialog: MatDialog,
               private readonly store: Store<{ favorites: Array<string> }>,
-              private iTunesService: ItunesService,
+              private favoritesService: FavoritesService,
               private formBuilder: FormBuilder) {
   }
 
@@ -55,7 +56,7 @@ export class AlbumTableComponent implements OnInit, AfterViewInit {
     this.dataSource.paginator = this.paginator;
   }
 
-  openAlbumDetailsDialog(album: AlbumVO) {
+  openAlbumDetailsDialog(album: Album) {
     this.dialog.open(AlbumDetailsDialogComponent, {data: {album}, panelClass: ['standard-dialog']})
   }
 
@@ -64,7 +65,7 @@ export class AlbumTableComponent implements OnInit, AfterViewInit {
   }
 
   toggleFavorite(album: any) {
-    this.iTunesService.toggleFavorite(album);
+    this.favoritesService.toggleFavorite(album);
   }
 
   isFavorite(favorites: string[], id: string) {

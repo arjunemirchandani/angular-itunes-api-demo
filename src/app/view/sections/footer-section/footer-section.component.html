@@ -1,7 +1,7 @@
 <div [ngStyle.xs]="{'font-size.px': 10}" fxLayout="column" fxLayout.gt-sm="row" fxLayoutAlign="stretch center">
   <div *ngIf="pageViews$|async as pageViews" class="left-col" fxFlex="1 0 0">Angular iTunes API Demo
     <div class="separator">•</div>
-    <div class="page-views">Page Views: {{ pageViews.pageViews }}</div>
+    <div class="page-views">Page Views: {{pageViews}}</div>
   </div>
   <div fxFlex="1 0 0" fxLayoutAlign="end">Copyright &copy; 2021. Arjune Mirchandani - All Rights Reserved.</div>
 </div>

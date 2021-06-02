@@ -8,7 +8,7 @@ import {Store} from "@ngrx/store";
 import {albumsList} from "../../../model/albums/albums.selectors";
 import {AppState} from "../../../model/app.state";
 import {PageViewsService} from "../../../control/services/pageViews/page-views.service";
-import {AlbumVO} from "../../../control/vos/album/album-vo";
+import {Album} from "../../../model/albums/albums.model";
 
 @Component({
   selector: 'app-grid-page',
@@ -31,7 +31,7 @@ export class GridPageComponent implements OnInit {
     this.albums$.subscribe(response => this.albums = response.albums)
   }
 
-  openAlbumDetailsDialog(album: AlbumVO | null) {
+  openAlbumDetailsDialog(album: Album | null) {
     this.dialog.open(AlbumDetailsDialogComponent, {data: {album}, panelClass: ['standard-dialog']})
   }
 }

@@ -1,8 +1,8 @@
 import {createReducer, on} from '@ngrx/store';
 import {updateList} from "./albums.actions";
-import {Album} from "./albums.model";
+import {IAlbum} from "./albums.model";
 
-export let initialState: Array<Album> = [];
+export let initialState: Array<IAlbum> = [];
 
 const _albumsReducer = createReducer(
   initialState,

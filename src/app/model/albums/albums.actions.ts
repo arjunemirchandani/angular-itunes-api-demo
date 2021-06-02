@@ -1,4 +1,4 @@
 import {createAction, props} from '@ngrx/store';
-import {Album} from "./albums.model";
+import {IAlbum} from "./albums.model";
 
-export const updateList = createAction('[Albums Component] UpdateList', props<{ list: Album[] }>());
+export const updateList = createAction('[Albums Component] UpdateList', props<{ list: IAlbum[] }>());
