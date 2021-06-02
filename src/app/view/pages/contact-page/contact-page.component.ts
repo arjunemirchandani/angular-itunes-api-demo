@@ -53,6 +53,7 @@ export class ContactPageComponent implements OnInit {
         icon: 'success',
         showCancelButton: false,
         confirmButtonText: 'OK',
+        heightAuto: false
       } as SweetAlertOptions);
     } else {
       return swal.fire({
@@ -61,6 +62,7 @@ export class ContactPageComponent implements OnInit {
         icon: 'error',
         showCancelButton: false,
         confirmButtonText: 'OK',
+        heightAuto: false
       } as SweetAlertOptions);
     }
   }
