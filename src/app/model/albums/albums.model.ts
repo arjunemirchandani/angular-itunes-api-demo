@@ -7,5 +7,4 @@ export interface Album {
   price: number;
   releaseDate: string;
   albumArt: string;
-  isFavorite: boolean;
 }

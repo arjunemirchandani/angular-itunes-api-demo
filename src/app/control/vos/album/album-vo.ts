@@ -13,7 +13,6 @@ export class AlbumVO implements Album {
   price!: number;
   releaseDate!: string;
   albumArt!: string;
-  isFavorite = false;
 
   /**
    * constructor
@@ -26,7 +25,6 @@ export class AlbumVO implements Album {
     this.artist = source?.artist?.label;
     this.trackCount = source?.itemCount?.label;
     this.price = source?.price?.attributes?.amount;
-    this.releaseDate = source?.releaseDate?.label;
     this.releaseDate = source?.releaseDate?.label;
     // get the third image from the array--largest sized thumbnail
     if (source?.image && source?.image.length === 3) {
