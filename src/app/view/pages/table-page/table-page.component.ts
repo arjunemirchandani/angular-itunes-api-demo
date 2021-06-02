@@ -18,6 +18,14 @@ export class TablePageComponent implements OnInit {
   albums$: Observable<Array<IAlbum>> = this.storeAlbums.select(albumsList.projector);
   favorites$: Observable<string[]> = this.storeFavorite.select(favorites.projector);
 
+  /**
+   * constructor
+   * @param browserTitle
+   * @param storeAlbums
+   * @param storeFavorite
+   * @param pageViewsService
+   * @param favoritesService
+   */
   constructor(private browserTitle: Title,
               private storeAlbums: Store<Array<IAlbum>>,
               private storeFavorite: Store<Array<string>>,

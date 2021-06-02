@@ -10,12 +10,15 @@ export class HeaderSectionComponent {
   @Output() toggleDrawer: EventEmitter<any> = new EventEmitter<any>();
 
   /**
-   * constructor.
+   * constructor
    * @param iTunesService
    */
   constructor(protected iTunesService: ItunesService) {
   }
 
+  /**
+   * debug function to refresh to albums upon logo click
+   */
   onLogoClick() {
     this.iTunesService.getTopAlbums().subscribe();
   }

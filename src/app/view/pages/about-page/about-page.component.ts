@@ -10,6 +10,11 @@ import {PageViewsService} from "../../../controller/pageViews/page-views.service
 })
 export class AboutPageComponent implements OnInit {
 
+  /**
+   * constructor
+   * @param browserTitle
+   * @param pageViewsService
+   */
   constructor(private browserTitle: Title,
               private pageViewsService: PageViewsService) {
   }

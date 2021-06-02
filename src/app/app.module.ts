@@ -53,8 +53,8 @@ import {favoritesReducer} from "./model/favorites/favorites.reducer";
   ],
   imports: [
     StoreModule.forRoot({
-      favorites: favoritesReducer,
       albums: albumsReducer,
+      favorites: favoritesReducer,
       pageViews: pageViewsReducer
     }),
     AppRoutingModule,

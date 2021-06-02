@@ -11,6 +11,10 @@ import {pageViews} from "../../../model/pageViews/page-views.selectors";
 export class FooterSectionComponent {
   pageViews$: Observable<number> = this.store.select(pageViews.projector);
 
+  /**
+   * constructor
+   * @param store
+   */
   constructor(private store: Store) {
   }
 }

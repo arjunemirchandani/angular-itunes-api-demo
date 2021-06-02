@@ -34,6 +34,11 @@ export class AlbumTableComponent implements OnInit, AfterViewInit {
     }
   }
 
+  /**
+   * constructor
+   * @param dialog
+   * @param formBuilder
+   */
   constructor(private dialog: MatDialog,
               private formBuilder: FormBuilder) {
   }

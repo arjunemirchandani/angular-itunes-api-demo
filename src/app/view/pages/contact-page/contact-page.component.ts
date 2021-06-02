@@ -16,6 +16,12 @@ export class ContactPageComponent implements OnInit {
   submitted = false;
   hidePassword = true
 
+  /**
+   * constructor
+   * @param browserTitle
+   * @param pageViewsService
+   * @param formBuilder
+   */
   constructor(private browserTitle: Title,
               private pageViewsService: PageViewsService,
               private formBuilder: FormBuilder) {

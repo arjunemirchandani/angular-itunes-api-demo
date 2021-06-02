@@ -17,6 +17,13 @@ import {Album, IAlbum} from "../../../model/albums/albums.model";
 export class GridPageComponent implements OnInit {
   albums$: Observable<Array<IAlbum>> = this.store.select(albumsList.projector);
 
+  /**
+   * constructor
+   * @param browserTitle
+   * @param pageViewsService
+   * @param dialog
+   * @param store
+   */
   constructor(private browserTitle: Title,
               private pageViewsService: PageViewsService,
               private dialog: MatDialog,

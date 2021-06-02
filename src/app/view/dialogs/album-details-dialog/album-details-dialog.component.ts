@@ -10,6 +10,10 @@ import {Album} from "../../../model/albums/albums.model";
 export class AlbumDetailsDialogComponent implements OnInit {
   public album!: Album;
 
+  /**
+   * constructor
+   * @param data
+   */
   constructor(@Inject(MAT_DIALOG_DATA) public data: any) {
   }
 
