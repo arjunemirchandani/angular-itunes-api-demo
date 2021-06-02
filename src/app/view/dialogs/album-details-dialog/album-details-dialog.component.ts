@@ -18,6 +18,8 @@ export class AlbumDetailsDialogComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.album = this.data.album;
+    if (this.data) {
+      this.album = this.data.album;
+    }
   }
 }

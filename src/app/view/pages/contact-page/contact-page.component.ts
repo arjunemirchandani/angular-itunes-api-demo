@@ -42,6 +42,9 @@ export class ContactPageComponent implements OnInit {
     });
   }
 
+  /**
+   * handles the contact form submission
+   */
   submit() {
     this.formGroup.markAllAsTouched();
     AppUtils.consoleLog("Form Value:", this.formGroup.value);
