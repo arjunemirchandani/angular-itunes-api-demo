@@ -1,2 +1,6 @@
 <div class="title">Sitemap</div>
-<a (click)="toggleDrawer.emit()" *ngFor="let appMenu of appMenu$|async" [routerLinkActiveOptions]="{exact: true}" [routerLink]="appMenu.routerLink" routerLinkActive="nav-active">{{appMenu.label}}</a>
+<a (click)="toggleDrawer.emit()"
+   *ngFor="let appMenu of appMenu$|async"
+   [routerLinkActiveOptions]="{exact: true}"
+   [routerLink]="appMenu.routerLink"
+   routerLinkActive="nav-active">{{appMenu.label}}</a>
