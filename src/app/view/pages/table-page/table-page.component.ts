@@ -3,9 +3,11 @@ import {Title} from "@angular/platform-browser";
 import {environment} from "../../../../environments/environment";
 import {Observable} from "rxjs";
 import {Store} from "@ngrx/store";
-import {AppState} from "../../../model/app.state";
 import {albumsList} from "../../../model/albums/albums.selectors";
 import {PageViewsService} from "../../../control/services/pageViews/page-views.service";
+import {favorites} from "../../../model/favorites/favorites.selectors";
+import {FavoritesService} from "../../../control/services/favorites/favorites.service";
+import {IAlbum} from "../../../model/albums/albums.model";
 
 @Component({
   selector: 'app-table-page',
@@ -13,15 +15,22 @@ import {PageViewsService} from "../../../control/services/pageViews/page-views.s
   styleUrls: ['./table-page.component.sass']
 })
 export class TablePageComponent implements OnInit {
-  albums$: Observable<AppState> = this.store.select(albumsList.projector);
+  albums$: Observable<Array<IAlbum>> = this.storeAlbums.select(albumsList.projector);
+  favorites$: Observable<string[]> = this.storeFavorite.select(favorites.projector);
 
   constructor(private browserTitle: Title,
-              private store: Store,
-              private pageViewsService: PageViewsService) {
+              private storeAlbums: Store<Array<IAlbum>>,
+              private storeFavorite: Store<Array<string>>,
+              private pageViewsService: PageViewsService,
+              private favoritesService: FavoritesService) {
   }
 
   ngOnInit(): void {
     this.browserTitle.setTitle(`Table Layout | ${environment.appTitle}`);
     this.pageViewsService.increment();
+  }
+
+  toggleFavorite(album: any) {
+    this.favoritesService.toggleFavorite(album);
   }
 }

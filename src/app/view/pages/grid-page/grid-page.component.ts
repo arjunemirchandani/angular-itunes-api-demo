@@ -6,9 +6,8 @@ import {MatDialog} from "@angular/material/dialog";
 import {Observable} from "rxjs";
 import {Store} from "@ngrx/store";
 import {albumsList} from "../../../model/albums/albums.selectors";
-import {AppState} from "../../../model/app.state";
 import {PageViewsService} from "../../../control/services/pageViews/page-views.service";
-import {Album} from "../../../model/albums/albums.model";
+import {Album, IAlbum} from "../../../model/albums/albums.model";
 
 @Component({
   selector: 'app-grid-page',
@@ -16,19 +15,17 @@ import {Album} from "../../../model/albums/albums.model";
   styleUrls: ['./grid-page.component.sass']
 })
 export class GridPageComponent implements OnInit {
-  albums$: Observable<AppState> = this.store.select(albumsList.projector);
-  albums!: any;
+  albums$: Observable<Array<IAlbum>> = this.store.select(albumsList.projector);
 
   constructor(private browserTitle: Title,
               private pageViewsService: PageViewsService,
               private dialog: MatDialog,
-              private store: Store) {
+              private store: Store<Array<IAlbum>>) {
   }
 
   ngOnInit(): void {
     this.browserTitle.setTitle(`Grid Layout | ${environment.appTitle}`);
     this.pageViewsService.increment();
-    this.albums$.subscribe(response => this.albums = response.albums)
   }
 
   openAlbumDetailsDialog(album: Album | null) {

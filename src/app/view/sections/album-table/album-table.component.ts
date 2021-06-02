@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, Input, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {MatPaginator} from "@angular/material/paginator";
 import {MatSort} from "@angular/material/sort";
 import {MatTableDataSource} from "@angular/material/table";
@@ -6,11 +6,7 @@ import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
 import {MatDialog} from "@angular/material/dialog";
 import {AlbumDetailsDialogComponent} from "../../dialogs/album-details-dialog/album-details-dialog.component";
 import {AppUtils} from "../../../control/utils/app/app-utils";
-import {Album} from "../../../model/albums/albums.model";
-import {Store} from "@ngrx/store";
-import {Observable} from "rxjs";
-import {FavoritesService} from "../../../control/services/favorites/favorites.service";
-import {favorites} from "../../../model/favorites/favorites.selectors";
+import {Album, IAlbum} from "../../../model/albums/albums.model";
 
 @Component({
   selector: 'app-album-table',
@@ -18,23 +14,17 @@ import {favorites} from "../../../model/favorites/favorites.selectors";
   styleUrls: ['./album-table.component.sass']
 })
 export class AlbumTableComponent implements OnInit, AfterViewInit {
+  @Input() favorites!: Array<string> | null;
+  @Output() toggleFavorites: EventEmitter<IAlbum> = new EventEmitter<IAlbum>();
   @ViewChild(MatPaginator, {static: false}) paginator!: MatPaginator;
   @ViewChild(MatSort, {static: false}) sort!: MatSort;
-  favorites$: Observable<string[]> = this.store.select(favorites.projector);
-  favorites!: Array<string>;
   public dataSource: MatTableDataSource<any> = new MatTableDataSource<any>();
+  public formGroup!: FormGroup;
   public displayedColumns: any[] = ['favorite', 'albumArt', 'name', 'artist', 'trackCount', 'price', 'releaseDate', 'details'];
   public pageSizeOptions = [5, 10, 25, 50, 100];
   public pageSize = 25;
   public pageIndex = 0;
   public length = 0;
-  public formGroup!: FormGroup;
-
-  constructor(private dialog: MatDialog,
-              private readonly store: Store<{ favorites: Array<string> }>,
-              private favoritesService: FavoritesService,
-              private formBuilder: FormBuilder) {
-  }
 
   @Input()
   set albums(albums: any) {
@@ -44,8 +34,11 @@ export class AlbumTableComponent implements OnInit, AfterViewInit {
     }
   }
 
+  constructor(private dialog: MatDialog,
+              private formBuilder: FormBuilder) {
+  }
+
   ngOnInit(): void {
-    this.favorites$.subscribe(favorites => this.favorites = favorites);
     this.formGroup = this.formBuilder.group({
       searchText: new FormControl(''),
     });
@@ -64,11 +57,7 @@ export class AlbumTableComponent implements OnInit, AfterViewInit {
     this.dataSource.filter = searchText;
   }
 
-  toggleFavorite(album: any) {
-    this.favoritesService.toggleFavorite(album);
-  }
-
-  isFavorite(favorites: string[], id: string) {
-    return favorites.includes(id);
+  isFavorite(favorites: string[] | null, id: string) {
+    return favorites?.includes(id);
   }
 }

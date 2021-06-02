@@ -4,7 +4,7 @@
     <h1>Table Layout</h1>
     <p>This page demonstrates the album array displayed within a Material Table. Table features include a search/filter field, items per page, and paginator, and columns sorters.</p>
     <hr>
-    <app-album-table *ngIf="albums$|async as albums" [albums]="albums.albums"></app-album-table>
+    <app-album-table (toggleFavorites)="toggleFavorite($event)" [albums]="albums$|async" [favorites]="favorites$|async"></app-album-table>
   </div>
   <div fxFlex="0 0 0" fxFlex.gt-sm="1 0 0"></div>
 </div>

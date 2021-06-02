@@ -9,7 +9,7 @@
          fxFlex.md="8 0 0"
          fxLayout="row wrap wrap"
          fxLayoutAlign="center space-between wrap">
-      <div *ngFor="let album of albums" class="album-box" fxFlex="0 0 20%" fxFlex.lt-md="0 0 25%" fxFlex.lt-sm="0 0 33%">
+      <div *ngFor="let album of albums$|async" class="album-box" fxFlex="0 0 20%" fxFlex.lt-md="0 0 25%" fxFlex.lt-sm="0 0 33%">
         <div (click)="openAlbumDetailsDialog(album)" class="album-flip-card">
           <div class="album-flip-card-inner">
             <div class="album-flip-card-front">

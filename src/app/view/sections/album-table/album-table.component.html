@@ -10,7 +10,7 @@
     <mat-table [dataSource]="dataSource" matSort matSortActive="name" matSortDirection="asc" role="treegrid">
       <ng-container matColumnDef="favorite">
         <mat-header-cell *matHeaderCellDef class="favorite"></mat-header-cell>
-        <mat-cell (click)="toggleFavorite(element)" *matCellDef="let element" [ngClass]="isFavorite(favorites,element.id) ? 'favorite-selected' : 'favorite'">
+        <mat-cell (click)="toggleFavorites.emit(element)" *matCellDef="let element" [ngClass]="isFavorite(favorites,element.id) ? 'favorite-selected' : 'favorite'">
           <mat-icon>favorite</mat-icon>
         </mat-cell>
       </ng-container>
