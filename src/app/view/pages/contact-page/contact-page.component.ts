@@ -3,8 +3,8 @@ import {Title} from "@angular/platform-browser";
 import {environment} from "../../../../environments/environment";
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import swal, {SweetAlertOptions} from 'sweetalert2';
-import {PageViewsService} from "../../../control/services/pageViews/page-views.service";
-import {AppUtils} from "../../../control/utils/app/app-utils";
+import {PageViewsService} from "../../../controller/pageViews/page-views.service";
+import {AppUtils} from "../../../../utils/app/app-utils";
 
 @Component({
   selector: 'app-contact-page',

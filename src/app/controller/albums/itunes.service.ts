@@ -4,10 +4,10 @@ import {HttpClient} from "@angular/common/http";
 import {NgxSpinnerService} from "ngx-spinner";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {map, tap} from "rxjs/operators";
-import {environment} from "../../../../environments/environment";
-import {AppUtils} from "../../utils/app/app-utils";
-import {updateList} from "../../../model/albums/albums.actions";
-import {Album, IAlbum} from "../../../model/albums/albums.model";
+import {environment} from "../../../environments/environment";
+import {AppUtils} from "../../../utils/app/app-utils";
+import {updateList} from "../../model/albums/albums.actions";
+import {Album, IAlbum} from "../../model/albums/albums.model";
 
 /**
  * Service that fetches data from the itunes public rss feed

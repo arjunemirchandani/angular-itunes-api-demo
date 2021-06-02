@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ItunesService} from "./control/services/albums/itunes.service";
+import {ItunesService} from "./controller/albums/itunes.service";
 
 @Component({
   selector: 'app-root',

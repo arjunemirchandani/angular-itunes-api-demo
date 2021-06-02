@@ -4,9 +4,9 @@ import {environment} from "../../../../environments/environment";
 import {Observable} from "rxjs";
 import {Store} from "@ngrx/store";
 import {albumsList} from "../../../model/albums/albums.selectors";
-import {PageViewsService} from "../../../control/services/pageViews/page-views.service";
+import {PageViewsService} from "../../../controller/pageViews/page-views.service";
 import {favorites} from "../../../model/favorites/favorites.selectors";
-import {FavoritesService} from "../../../control/services/favorites/favorites.service";
+import {FavoritesService} from "../../../controller/favorites/favorites.service";
 import {IAlbum} from "../../../model/albums/albums.model";
 
 @Component({

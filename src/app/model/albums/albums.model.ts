@@ -1,4 +1,4 @@
-import {AppUtils} from "../../control/utils/app/app-utils";
+import {AppUtils} from "../../../utils/app/app-utils";
 
 export interface IAlbum {
   id: string;

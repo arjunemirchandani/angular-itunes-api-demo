@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {environment} from "../../../../environments/environment";
 import {Title} from "@angular/platform-browser";
-import {PageViewsService} from "../../../control/services/pageViews/page-views.service";
+import {PageViewsService} from "../../../controller/pageViews/page-views.service";
 
 @Component({
   selector: 'app-about-page',

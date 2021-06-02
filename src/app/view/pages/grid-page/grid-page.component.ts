@@ -6,7 +6,7 @@ import {MatDialog} from "@angular/material/dialog";
 import {Observable} from "rxjs";
 import {Store} from "@ngrx/store";
 import {albumsList} from "../../../model/albums/albums.selectors";
-import {PageViewsService} from "../../../control/services/pageViews/page-views.service";
+import {PageViewsService} from "../../../controller/pageViews/page-views.service";
 import {Album, IAlbum} from "../../../model/albums/albums.model";
 
 @Component({

@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
-import {Album} from "../../../model/albums/albums.model";
+import {Album} from "../../model/albums/albums.model";
 import {Store} from "@ngrx/store";
 import {MatSnackBar} from "@angular/material/snack-bar";
-import {toggleFavorite} from "../../../model/favorites/favorites.actions";
+import {toggleFavorite} from "../../model/favorites/favorites.actions";
 
 @Injectable({
   providedIn: 'root'

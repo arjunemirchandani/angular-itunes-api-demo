@@ -5,7 +5,7 @@ import {MatTableDataSource} from "@angular/material/table";
 import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
 import {MatDialog} from "@angular/material/dialog";
 import {AlbumDetailsDialogComponent} from "../../dialogs/album-details-dialog/album-details-dialog.component";
-import {AppUtils} from "../../../control/utils/app/app-utils";
+import {AppUtils} from "../../../../utils/app/app-utils";
 import {Album, IAlbum} from "../../../model/albums/albums.model";
 
 @Component({
