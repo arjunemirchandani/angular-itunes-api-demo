@@ -1,4 +1,7 @@
 import {NgModule} from '@angular/core';
+import {environment} from "../environments/environment";
+import {StoreModule} from "@ngrx/store";
+import {StoreDevtoolsModule} from "@ngrx/store-devtools";
 import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AppRoutingModule} from './app-routing.module';
@@ -32,13 +35,10 @@ import {AppDrawerComponent} from './view/sections/app-drawer/app-drawer.componen
 import {GridPageComponent} from './view/pages/grid-page/grid-page.component';
 import {AlbumTableComponent} from "./view/sections/album-table/album-table.component";
 import {TablePageComponent} from './view/pages/table-page/table-page.component';
-import {StoreModule} from "@ngrx/store";
 import {pageViewsReducer} from "./model/pageViews/page-views.reducer";
 import {albumsReducer} from "./model/albums/albums.reducer";
 import {favoritesReducer} from "./model/favorites/favorites.reducer";
 import {appMenuReducer} from "./model/appMenu/app-menu.reducer";
-import {StoreDevtoolsModule} from "@ngrx/store-devtools";
-import {environment} from "../environments/environment";
 
 @NgModule({
   declarations: [
@@ -62,7 +62,8 @@ import {environment} from "../environments/environment";
       pageViews: pageViewsReducer
     }),
     StoreDevtoolsModule.instrument({
-      maxAge: 25, logOnly: !environment.production
+      maxAge: 25,
+      logOnly: !environment.production
     }),
     AppRoutingModule,
     BrowserModule,
