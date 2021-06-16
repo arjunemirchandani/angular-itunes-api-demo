@@ -37,6 +37,8 @@ import {pageViewsReducer} from "./model/pageViews/page-views.reducer";
 import {albumsReducer} from "./model/albums/albums.reducer";
 import {favoritesReducer} from "./model/favorites/favorites.reducer";
 import {appMenuReducer} from "./model/appMenu/app-menu.reducer";
+import {StoreDevtoolsModule} from "@ngrx/store-devtools";
+import {environment} from "../environments/environment";
 
 @NgModule({
   declarations: [
@@ -58,6 +60,9 @@ import {appMenuReducer} from "./model/appMenu/app-menu.reducer";
       albums: albumsReducer,
       favorites: favoritesReducer,
       pageViews: pageViewsReducer
+    }),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25, logOnly: !environment.production
     }),
     AppRoutingModule,
     BrowserModule,
